@@ -33,7 +33,7 @@ _**Slap** is messaging application that allows for a dynamic user experience.  A
 
 ### Goals
 
-- _Create a message threads between one or more users._
+- _Create a message threads between one or more users_
 - _Populate the message threads with data and content from users_
 - _Let the user create, update, and maintain contact list._
 - _Allow the user to edit and delete messages._
