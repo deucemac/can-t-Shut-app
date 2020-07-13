@@ -61,7 +61,7 @@ _**Can'tShutApp** is an application that creates a platform for discussion.  A u
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
+> copy and paste the links into a different tab
 
 ![https://wireframe.cc/pro/pp/9c10fbd06358581](url)
 
