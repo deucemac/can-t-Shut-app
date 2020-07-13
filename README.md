@@ -65,27 +65,19 @@ _**Can'tShutApp** is an application that creates a platform for discussion.  A u
 
 ![https://wireframe.cc/pro/pp/9c10fbd06358581](url)
 
-- Overview
+- Overview/MainPage
 
 ![https://wireframe.cc/pro/pp/186913f58358596](url)
 
-- View All Chats/message Threads
-
-![https://wireframe.cc/pro/pp/10bc42420358602](url)
-
-- Start message with friend
-
-![https://wireframe.cc/pro/pp/7c3597868358605](url)
-
-- View your contacts
+- View All User Topics Threads
 
 ![https://wireframe.cc/pro/pp/eae0e148b358591](url)
 
-- Message Chat view
+- Single Topic/Thread view
 
 ![https://wireframe.cc/pro/pp/167d4cd36358609](url)
 
-- Start Group Chat
+- Initialize a Topic
 
 #### Component Tree
 
