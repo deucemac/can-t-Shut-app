@@ -1,5 +1,5 @@
-# Slap
-Slap is a chat room that allows users to send and exchange messages. Users can friend request each other and create threads to communicate within the app. Slap provides both one-on-one communication and group chats for a diverse user experience.
+# Can't-Shut-app
+Can't-Shut-app is a chat room that allows users to send and exchange messages. Users can friend request each other and create threads to communicate within the app. Slap provides both one-on-one communication and group chats for a diverse user experience.
 
 
 - [Overview](#overview)
@@ -22,7 +22,7 @@ Slap is a chat room that allows users to send and exchange messages. Users can f
 
 ## Overview
 
-_**Slap** is messaging application that allows for a dynamic user experience.  A user can make friends and maintain various group chats by starting message threads to connect with friends and family._
+_**Can'tShutApp** is messaging application that allows for a dynamic user experience.  A user can make friends and maintain various group chats by starting message threads to connect with friends and family._
 
 
 <br>
