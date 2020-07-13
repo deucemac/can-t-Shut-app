@@ -1,5 +1,5 @@
 # Can't-Shut-app
-Can't-Shut-app is a chat room that allows users to send and exchange messages. Users can friend request each other and create threads to communicate within the app. Slap provides both one-on-one communication and group chats for a diverse user experience.
+Can't-Shut-app is a chat room that allows users to create topics and discuss various subjects. Users can friend request each other and create threads to communicate within the app. Slap provides both one-on-one communication and group chats for a diverse user experience.
 
 
 - [Overview](#overview)
@@ -22,7 +22,7 @@ Can't-Shut-app is a chat room that allows users to send and exchange messages. U
 
 ## Overview
 
-_**Can'tShutApp** is messaging application that allows for a dynamic user experience.  A user can make friends and maintain various group chats by starting message threads to connect with friends and family._
+_**Can'tShutApp** is an application that creates a platform for discussion.  A user can create various threads by initiating a topic and connecting with users to share information around the world._
 
 
 <br>
@@ -33,11 +33,11 @@ _**Can'tShutApp** is messaging application that allows for a dynamic user experi
 
 ### Goals
 
-- _Create a message threads between one or more users_
-- _Populate the message threads with data and content from users_
-- _Let the user create, update, and maintain contact list._
-- _Allow the user to edit and delete messages._
-- _Provide clean user interface for user to view contacts and send messages._
+- _Create a threads between users to exchange messages and information._
+- _Populate the message threads with data and content from users._
+- _Let the user create, update, and maintain posts._
+- _Allows the user to edit and delete posts._
+- _Provides clean user interface for user topics and respond/post with information._
 
 <br>
 
@@ -49,11 +49,11 @@ _**Can'tShutApp** is messaging application that allows for a dynamic user experi
 | :--------------: | :----------------------------------------- |
 |      React       | _Library for frent development._           |
 |   React Router   | _For declarative routing on the front-end._|
-|     PSQL         | _Relational database._                     |
+|      PSQL        | _Relational database._                     |
 |      Rails       | _Back end framework for development._      |
-|       JWT        | _Used for the purpose of authentication._  |
-|   Rack Cors      | _cross-origin resource sharing._           |
-|     axios        | _HTTP client to perform requests._         |
+|      JWT         | _Used for the purpose of authentication._  |
+|    Rack Cors     | _cross-origin resource sharing._           |
+|      axios       | _HTTP client to perform requests._         |
 
 <br>
 
@@ -99,14 +99,14 @@ _**Can'tShutApp** is messaging application that allows for a dynamic user experi
 src
 |__ components/
       |__ Main.jsx
-      |__ StartMessageThread.jsx
-      |__ ShowMessageThread.jsx
-      |__ ShowMessages.jsx
-      |__ CreateMessage.jsx
+      |__ StartTopic.jsx
+      |__ ShowTopicThread.jsx
+      |__ ShowPosts.jsx
+      |__ CreatePost.jsx
       |__ Login.jsx
       |__ Register.jsx
       |__ Header.jsx
-      |__ UpdateMessage.jsx
+      |__ UpdatePost.jsx
       |__ Search.jsx
 |__ services/
       |__ api-helper.js
@@ -124,14 +124,14 @@ src
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
 |    Main      |   class    |   y   |   y   | _Primary data holding component._                                |
-|StartMessageT |   class    |   y   |   y   | _Will initiate a new message thread_                             |
-| ShowMessageT |   class    |   y   |   y   | _Will show a current message thread._                            |
-| ShowMessages | functional |   n   |   y   | _Will show current messages._                                    |
-| CreateMessage| functional |   n   |   y   | _Will create a message._                                         |
+|   StartTopic |   class    |   y   |   y   | _Will initiate a new topic_                                      |
+|   ShowTopic  |   class    |   y   |   y   | _Will show a current topic._                                     |
+|   ShowPosts  | functional |   n   |   y   | _Will show current posts._                                       |
+|  CreatePosts | functional |   n   |   y   | _Will create a post._                                            |
 |    Login     |   class    |   y   |   y   | _Handles user login information._                                |
 |   Register   |   class    |   y   |   y   | _Registers a new user._                                          |
 |    Header    | functional |   n   |   n   | _Provide links to different pages and displays the current user._|
-| UpdateMessage|   class    |   y   |   y   | _Edits a message previously sent._                               |
+|  UpdatePost  |   class    |   y   |   y   | _Edits a post previously sent._                                  |
 
 #### Time Estimates
 
