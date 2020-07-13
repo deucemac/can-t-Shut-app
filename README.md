@@ -89,7 +89,7 @@ _**Slap** is messaging application that allows for a dynamic user experience.  A
 
 #### Component Tree
 
->  
+![https://wireframe.cc/pro/pp/b9cbc4ff1358667](url)
 
 #### Component Hierarchy
  
