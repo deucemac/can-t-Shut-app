@@ -61,27 +61,25 @@ _**Can'tShutApp** is an application that creates a platform for discussion.  A u
 
 #### Wireframes
 
-> copy and paste the links into a different tab
-
-![https://wireframe.cc/pro/pp/9c10fbd06358581](url)
+[Overview](https://wireframe.cc/pro/pp/9c10fbd06358581)
 
 - Overview/MainPage
 
-![https://wireframe.cc/pro/pp/186913f58358596](url)
+[ViewTopics](https://wireframe.cc/pro/pp/186913f58358596)
 
 - View All User Topics Threads
 
-![https://wireframe.cc/pro/pp/eae0e148b358591](url)
+[SingleThread](https://wireframe.cc/pro/pp/eae0e148b358591)
 
 - Single Topic/Thread view
 
-![https://wireframe.cc/pro/pp/167d4cd36358609](url)
+[StartTopic](https://wireframe.cc/pro/pp/167d4cd36358609)
 
 - Initialize a Topic
 
 #### Component Tree
 
-![https://wireframe.cc/pro/pp/b9cbc4ff1358667](url)
+[Component Model](https://wireframe.cc/pro/pp/b9cbc4ff1358667)
 
 #### Component Hierarchy
  
