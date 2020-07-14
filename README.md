@@ -77,6 +77,18 @@ _**Can'tShutApp** is an application that creates a platform for discussion.  A u
 
 - Initialize a Topic
 
+[Search a Topic](https://wireframe.cc/pro/pp/66d78c04d358926)
+
+- Page to search for a Topic
+
+[Homepage](https://wireframe.cc/pro/pp/3ef91058e358931)
+
+- Page to login
+
+[CreateProfile](https://wireframe.cc/pro/pp/418cfe097358936)
+
+- Page to create profile
+
 #### Component Tree
 
 [Component Model](https://wireframe.cc/pro/pp/b9cbc4ff1358667)
