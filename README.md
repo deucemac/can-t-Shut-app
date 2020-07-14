@@ -146,7 +146,7 @@ src
 
 #### ERD Model
 
-![https://drive.google.com/file/d/1kdcREDvcVOgbGq-QgMWI9v04fFqkTMDS/view?usp=sharing](url)
+![ERD](https://drive.google.com/file/d/1kdcREDvcVOgbGq-QgMWI9v04fFqkTMDS/view?usp=sharing)
 > Copy and paste the link into another tab
 
 <br>
