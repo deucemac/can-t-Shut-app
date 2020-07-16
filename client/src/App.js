@@ -1,4 +1,5 @@
 import { loginUser, verifyUser, registerUser } from './services/auth'
+import Login from './components/Login'
 import './App.css';
 
 import React, { Component } from 'react'
@@ -44,14 +45,24 @@ export default class App extends Component {
       currentUser
     })
   }
+
+  signOut = (e) => {
+    e.preventDefault()
+    this.setState(prevState => ({
+      currentUser: !prevState.currentUser
+    }))
+  }
   
   render() {
     return (
       <div>
-        <Register
+        <h1>Welcome</h1>
+        <Login
             handleChange={this.handleChange}
             userData={this.state.userData}
-            handleRegister={this.handleRegister}
+            handleLogin={this.loginSubmit}
+            currentUser={this.state.currentUser}
+            signOut={this.signOut}
           />
       </div>
     )
