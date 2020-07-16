@@ -17,7 +17,6 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @topic = Topic.find(params[:topic_id])
-    # @topic.messages<<@message
     @message.topic = @topic
     @message.user = @current_user
     if @message.save
