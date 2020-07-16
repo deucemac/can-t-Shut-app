@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  # before_action :authorize_request, except: :create
+  before_action :authorize_request, except: :create
 
   # GET /users
   def index
@@ -33,6 +33,8 @@ class UsersController < ApplicationController
       render json: @user.errors, status: :unprocessable_entity
     end
   end
+
+
 
   # DELETE /users/1
   def destroy

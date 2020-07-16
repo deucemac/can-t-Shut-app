@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
   resources :users
 
-  # post 'users/:id/:topic_id/messages', to: 'messages#make_message'
+  # post 'users/:id/:topic_id/messages', to: 'messages#create'
   post '/auth/login', to: 'authentication#login'
   get '/auth/verify', to: 'authentication#verify'
 end

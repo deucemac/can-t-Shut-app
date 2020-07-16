@@ -471,3 +471,375 @@ Processing by MessagesController#create as */*
 Completed 422 Unprocessable Entity in 25ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 9353)
 
 
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 11:17:58 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Cant believe we only get 60 games this season", "topic_id"=>"1", "message"=>{"content"=>"Cant believe we only get 60 games this season"}}
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:26:in `create'
+Completed 422 Unprocessable Entity in 42ms (Views: 0.2ms | ActiveRecord: 9.8ms | Allocations: 13408)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 11:17:59 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Cant believe we only get 60 games this season", "topic_id"=>"1", "message"=>{"content"=>"Cant believe we only get 60 games this season"}}
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:26:in `create'
+Completed 422 Unprocessable Entity in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1732)
+
+
+Started POST "/users/1/1/messages" for ::1 at 2020-07-15 11:21:45 -0400
+Processing by UsersController#make_message as */*
+  Parameters: {"content"=>"Cant believe we only get 60 games this season", "id"=>"1", "topic_id"=>"1", "user"=>{}}
+Completed 500 Internal Server Error in 113ms (ActiveRecord: 2.6ms | Allocations: 60361)
+
+
+  
+NameError (undefined local variable or method `message_params' for #<UsersController:0x00007fbb939edaa8>):
+  
+app/controllers/users_controller.rb:38:in `make_message'
+Started POST "/users/1/1/messages" for ::1 at 2020-07-15 12:43:01 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Cant believe we only get 60 games this season", "id"=>"1", "topic_id"=>"1", "message"=>{"content"=>"Cant believe we only get 60 games this season"}}
+  [1m[36mTopic Load (0.5ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:27:in `create'
+Completed 422 Unprocessable Entity in 42ms (Views: 0.2ms | ActiveRecord: 17.3ms | Allocations: 9519)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:02:38 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Cant believe we only get 60 games this season", "topic_id"=>"1", "message"=>{"content"=>"Cant believe we only get 60 games this season"}}
+  [1m[36mTopic Load (0.6ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:27:in `create'
+Completed 422 Unprocessable Entity in 32ms (Views: 0.2ms | ActiveRecord: 4.4ms | Allocations: 9301)
+
+
+Started GET "/rails/info/routes" for ::1 at 2020-07-15 13:04:54 -0400
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/dwaynemcdowell/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/dwaynemcdowell/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [38 times] (Duration: 12.1ms | Allocations: 5217)
+  Rendered /Users/dwaynemcdowell/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 2.9ms | Allocations: 889)
+  Rendered /Users/dwaynemcdowell/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 20.9ms | Allocations: 9217)
+Completed 200 OK in 33ms (Views: 29.0ms | ActiveRecord: 0.0ms | Allocations: 11042)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:06:55 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Cant believe we only get 60 games this season", "topic_id"=>"1", "message"=>{"content"=>"Cant believe we only get 60 games this season"}}
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:27:in `create'
+Completed 422 Unprocessable Entity in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1753)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:12:08 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Cant believe we only get 60 games this season", "topic_id"=>"1", "message"=>{"content"=>"Cant believe we only get 60 games this season"}}
+  [1m[36mTopic Load (1.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:27:in `create'
+Completed 422 Unprocessable Entity in 22ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 8767)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:24:30 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Cant believe we only get 60 games this season", "topic_id"=>"1", "message"=>{"content"=>"Cant believe we only get 60 games this season"}}
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:26:in `create'
+Completed 422 Unprocessable Entity in 23ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 8678)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:31:39 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Cant believe we only get 60 games this season", "topic_id"=>"1", "message"=>{"content"=>"Cant believe we only get 60 games this season"}}
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:26:in `create'
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 1243)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:37:21 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Cant believe we only get 60 games this season", "topic_id"=>"1", "message"=>{"content"=>"Cant believe we only get 60 games this season"}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 162)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:44:00 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"message"=>{"content"=>"I can't believe we only get 60 games this year."}, "topic_id"=>"1"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 158)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:44:01 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"message"=>{"content"=>"I can't believe we only get 60 games this year."}, "topic_id"=>"1"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 119)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:44:12 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"message"=>{"content"=>"I can't believe we only get 60 games this year."}, "topic_id"=>"1"}
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:18:in `create'
+Completed 422 Unprocessable Entity in 45ms (Views: 0.2ms | ActiveRecord: 17.1ms | Allocations: 9363)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:57:09 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"message"=>{"content"=>"I can't believe we only get 60 games this year."}, "topic_id"=>"1"}
+  [1m[36mTopic Load (0.5ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:19:in `create'
+Completed 422 Unprocessable Entity in 24ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 8961)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:57:10 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"message"=>{"content"=>"I can't believe we only get 60 games this year."}, "topic_id"=>"1"}
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:19:in `create'
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1157)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 13:57:22 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"message"=>{"content"=>"I can't believe we only get 60 games this year."}, "topic_id"=>"1"}
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:19:in `create'
+Completed 422 Unprocessable Entity in 59ms (Views: 0.3ms | ActiveRecord: 26.8ms | Allocations: 9170)
+
+
+Started POST "/auth/login" for ::1 at 2020-07-15 15:41:42 -0400
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#login as */*
+  Parameters: {"user"=>{"username"=>"gmac", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"username"=>"gmac", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 15.3ms | Allocations: 4243)
+
+
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/controllers/authentication_controller.rb:7:in `login'
+Started POST "/auth/login" for ::1 at 2020-07-15 15:42:15 -0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"user"=>{"username"=>"gmac", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"username"=>"gmac", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 2.2ms | Allocations: 3359)
+
+
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/controllers/authentication_controller.rb:7:in `login'
+Started POST "/auth/login" for ::1 at 2020-07-15 15:43:08 -0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"authentication"=>{"username"=>"gmac", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "gmac"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 370ms (Views: 0.5ms | ActiveRecord: 15.8ms | Allocations: 4288)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 15:47:36 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"message"=>{"content"=>"I can't believe we only get 60 games this year."}, "topic_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mTopic Load (6.6ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/messages_controller.rb:23:in `create'
+  [1m[36mMessage Create (24.5ms)[0m  [1m[32mINSERT INTO "messages" ("content", "topic_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "I can't believe we only get 60 games this year."], ["topic_id", 1], ["user_id", 1], ["created_at", "2020-07-15 19:47:36.499525"], ["updated_at", "2020-07-15 19:47:36.499525"]]
+  ↳ app/controllers/messages_controller.rb:23:in `create'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/messages_controller.rb:23:in `create'
+Completed 201 Created in 83ms (Views: 0.3ms | ActiveRecord: 41.6ms | Allocations: 11492)
+
+
+Started DELETE "/topics/1/messages/6" for ::1 at 2020-07-15 15:56:52 -0400
+Processing by MessagesController#destroy as */*
+  Parameters: {"message"=>{"content"=>"I can't believe we only get 60 games this year."}, "topic_id"=>"1", "id"=>"6"}
+  [1m[36mMessage Load (2.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:60:in `set_message'
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/messages_controller.rb:40:in `destroy'
+  [1m[36mMessage Destroy (19.6ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/messages_controller.rb:40:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/messages_controller.rb:40:in `destroy'
+Completed 200 OK in 133ms (Views: 0.5ms | ActiveRecord: 26.4ms | Allocations: 10938)
+
+
+Started DELETE "/topics/1/messages/2" for ::1 at 2020-07-15 15:58:07 -0400
+Processing by MessagesController#destroy as */*
+  Parameters: {"message"=>{"content"=>"I can't believe we only get 60 games this year."}, "topic_id"=>"1", "id"=>"2"}
+  [1m[36mMessage Load (2.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:60:in `set_message'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 3.2ms | Allocations: 1310)
+
+
+Started PUT "/topics/1/messages/4" for ::1 at 2020-07-15 15:59:48 -0400
+Processing by MessagesController#update as */*
+  Parameters: {"message"=>{"content"=>"1000mph"}, "topic_id"=>"1", "id"=>"4"}
+  [1m[36mMessage Load (6.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:60:in `set_message'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/messages_controller.rb:31:in `update'
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:31:in `update'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:31:in `update'
+  [1m[36mMessage Update (0.6ms)[0m  [1m[33mUPDATE "messages" SET "content" = $1, "updated_at" = $2 WHERE "messages"."id" = $3[0m  [["content", "1000mph"], ["updated_at", "2020-07-15 19:59:48.601161"], ["id", 4]]
+  ↳ app/controllers/messages_controller.rb:31:in `update'
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/messages_controller.rb:31:in `update'
+Completed 200 OK in 61ms (Views: 0.8ms | ActiveRecord: 16.0ms | Allocations: 11182)
+
+
+Started PUT "/topics/1/messages/4" for ::1 at 2020-07-15 16:34:10 -0400
+Processing by MessagesController#update as */*
+  Parameters: {"message"=>{"content"=>"100mph"}, "topic_id"=>"1", "id"=>"4"}
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:63:in `set_message'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 9088)
+
+
+Started PUT "/topics/1/messages/3" for ::1 at 2020-07-15 16:34:42 -0400
+Processing by MessagesController#update as */*
+  Parameters: {"message"=>{"content"=>"Judge is the man!!"}, "topic_id"=>"1", "id"=>"3"}
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:63:in `set_message'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/messages_controller.rb:32:in `update'
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:32:in `update'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:32:in `update'
+  [1m[36mMessage Update (0.6ms)[0m  [1m[33mUPDATE "messages" SET "content" = $1, "updated_at" = $2 WHERE "messages"."id" = $3[0m  [["content", "Judge is the man!!"], ["updated_at", "2020-07-15 20:34:42.308167"], ["id", 3]]
+  ↳ app/controllers/messages_controller.rb:32:in `update'
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/messages_controller.rb:32:in `update'
+Completed 200 OK in 29ms (Views: 0.4ms | ActiveRecord: 7.8ms | Allocations: 10679)
+
+
+Started POST "/users/" for ::1 at 2020-07-15 17:00:10 -0400
+Processing by UsersController#create as */*
+  Parameters: {"authentication"=>{"username"=>"mike1", "password"=>"[FILTERED]"}, "user"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 189)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users/2" for ::1 at 2020-07-15 17:00:27 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users/2"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2020-07-15 17:00:38 -0400
+Processing by UsersController#create as */*
+  Parameters: {"authentication"=>{"username"=>"mike1", "password"=>"[FILTERED]"}, "user"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 139)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users" for ::1 at 2020-07-15 17:01:39 -0400
+Processing by UsersController#create as */*
+  Parameters: {"authentication"=>{"username"=>"mike1", "password"=>"[FILTERED]"}, "user"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 139)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/auth/login" for ::1 at 2020-07-15 17:18:24 -0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"user"=>{"username"=>"mike1", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"username"=>"mike1", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.6ms | Allocations: 1652)
+
+
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/controllers/authentication_controller.rb:7:in `login'
+Started POST "/auth/login" for ::1 at 2020-07-15 17:18:56 -0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"authentication"=>{"username"=>"mike1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mike1"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 341ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 3922)
+
+
+Started POST "/auth/login" for ::1 at 2020-07-15 17:23:49 -0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"authentication"=>{"username"=>"gmac", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "gmac"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 227ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 987)
+
+
+Started POST "/topics/1/messages" for ::1 at 2020-07-15 18:10:21 -0400
+Processing by MessagesController#create as */*
+  Parameters: {"message"=>{"content"=>"When does the season start?"}, "topic_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/messages_controller.rb:23:in `create'
+  [1m[36mMessage Create (2.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "topic_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "When does the season start?"], ["topic_id", 1], ["user_id", 1], ["created_at", "2020-07-15 22:10:21.872975"], ["updated_at", "2020-07-15 22:10:21.872975"]]
+  ↳ app/controllers/messages_controller.rb:23:in `create'
+  [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/messages_controller.rb:23:in `create'
+Completed 201 Created in 34ms (Views: 0.4ms | ActiveRecord: 15.6ms | Allocations: 10293)
+
+
