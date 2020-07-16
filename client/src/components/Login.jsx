@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { Link, Route, withRouter } from 'react-router-dom'
+import Main from './Main'
+
 
 export default class Login extends Component {
 
@@ -8,7 +11,12 @@ export default class Login extends Component {
         <header>
 
           {this.props.currentUser ?
-            <h2>Hello {this.props.currentUser.username}</h2> :
+            (<>
+              <h2>Hello {this.props.currentUser.username}</h2>
+              {/* <button onClick={this.props.handleLogout}>sign out</button> */}
+            </>)
+            
+             :
             <div className="login">
               <form onSubmit={this.props.handleLogin}>
                 <div className="pair">
@@ -22,11 +30,11 @@ export default class Login extends Component {
                 </div>
 
                 <input type='submit' value="Login" />
+                <button>Log In</button>
               </form>
             </div>
 
           }
-<button onClick={this.props.signOut}>Sign out</button>
         </header>
       </>
     )
