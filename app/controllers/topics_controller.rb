@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :update, :destroy]
+  before_action :authorize_request, only: [:create]
 
   # GET /topics
   def index
@@ -16,7 +17,6 @@ class TopicsController < ApplicationController
   # POST /topics
   def create
     @topic = Topic.new(topic_params)
-
     if @topic.save
       render json: @topic, status: :created
     else

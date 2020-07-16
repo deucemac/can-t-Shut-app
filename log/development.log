@@ -843,3 +843,68 @@ Processing by MessagesController#create as */*
 Completed 201 Created in 34ms (Views: 0.4ms | ActiveRecord: 15.6ms | Allocations: 10293)
 
 
+Started POST "/topics" for ::1 at 2020-07-15 21:46:40 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TopicsController#create as */*
+  Parameters: {"topic"=>{"name"=>"News"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 17.9ms | Allocations: 10496)
+
+
+  
+NoMethodError (undefined method `user=' for #<Topic id: nil, name: "News", created_at: nil, updated_at: nil>
+Did you mean?  users=
+               users):
+  
+app/controllers/topics_controller.rb:20:in `create'
+Started POST "/topics" for ::1 at 2020-07-15 21:50:50 -0400
+Processing by TopicsController#create as */*
+  Parameters: {"topic"=>{"name"=>"News"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 5.7ms | Allocations: 12664)
+
+
+  
+NoMethodError (undefined method `each' for #<User:0x00007f9a51130748>):
+  
+app/controllers/topics_controller.rb:20:in `create'
+Started POST "/topics" for ::1 at 2020-07-15 21:55:42 -0400
+Processing by TopicsController#create as */*
+  Parameters: {"topic"=>{"name"=>"News"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 2904)
+
+
+  
+NoMethodError (undefined method `each' for #<User:0x00007f9a543e3d48>):
+  
+app/controllers/topics_controller.rb:20:in `create'
+Started POST "/topics" for ::1 at 2020-07-15 21:55:56 -0400
+Processing by TopicsController#create as */*
+  Parameters: {"topic"=>{"name"=>"News"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms | Allocations: 2921)
+
+
+  
+NoMethodError (undefined method `each' for #<User:0x00007f9a4fbfe4d8>):
+  
+app/controllers/topics_controller.rb:20:in `create'
+Started POST "/topics" for ::1 at 2020-07-15 21:56:14 -0400
+Processing by TopicsController#create as */*
+  Parameters: {"topic"=>{"name"=>"News"}}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/topics_controller.rb:21:in `create'
+  [1m[36mTopic Create (2.3ms)[0m  [1m[32mINSERT INTO "topics" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "News"], ["created_at", "2020-07-16 01:56:14.986334"], ["updated_at", "2020-07-16 01:56:14.986334"]]
+  ↳ app/controllers/topics_controller.rb:21:in `create'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/topics_controller.rb:21:in `create'
+Completed 201 Created in 35ms (Views: 0.4ms | ActiveRecord: 12.4ms | Allocations: 10262)
+
+
