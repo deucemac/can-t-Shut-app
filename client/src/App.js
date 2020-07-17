@@ -1,17 +1,20 @@
 import { loginUser, verifyUser, registerUser, removeToken } from './services/auth'
 import Login from './components/Login'
 import './App.css';
-import { Link, Route, withRouter } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import Main from './components/Main'
 import Register from './components/Register'
+import ShowTopics from './components/ShowTopics'
 
 
 import React, { Component } from 'react'
+import { getAllTopics } from './services/api-helper';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      topics: [],
       userData: {
         username: '',
         password: ''
@@ -27,6 +30,10 @@ class App extends Component {
       currentUser
     })
     if (!currentUser) this.props.history.push('/login')
+    const topics = await getAllTopics()
+    this.setState({
+      topics
+    })
   }
 
   handleChange = (e) => {
@@ -64,7 +71,7 @@ class App extends Component {
   // }
 
   handleLogOut = () => {
-    console.log('dfe')
+    
     this.setState({
       currentUser: null
     })
@@ -76,47 +83,31 @@ class App extends Component {
 
 
   render() {
+    
+    
     return (
       <div>
         <h1>Welcome</h1>
 
-        <Route path='/login'>
-          <Login
-            handleChange={this.handleChange}
-            userData={this.state.userData}
+        
+
+        
+          <Main
+            currentUser={this.state.currentUser}
             handleLogin={this.loginSubmit}
-            currentUser={this.state.currentUser}
-          // handleLogOut={this.handleLogOut}
-          // handleRegister={this.handleRegister}
-          />
-        </Route>
-
-        {/* <Route exact path='/'>
-          <Main
-          currentUser={this.state.currentUser}
-          // handleLogin={this.handleLogin}
             handleLogOut={this.handleLogOut}
-            
-          />
-        </Route>  */}
-        {this.state.currentUser && <Route path='/' render={(props) => (
-          <Main
-            {...props}
-            currentUser={this.state.currentUser}
-            // handleLogin={this.handleLogin}
-            handleLogOut={this.handleLogOut}
-          />
-        )}
-        />}
-
-        <Route path='/register' render={(props) => (
-          <Register
-            {...props}
-            // handleChange={this.handleChange}
-            handleRegister={this.handleRegister}
-         />
-        )}
+          handleRegister={this.handleRegister}
+          userData={this.state.userData}
+          handleChange={this.handleChange}
         />
+        
+        
+        {this.state.currentUser ? <ShowTopics topics={this.state.topics}/> : null }
+        
+        
+        
+
+        
          
 
 
@@ -126,4 +117,3 @@ class App extends Component {
   }
 }
 
-export default withRouter(App)

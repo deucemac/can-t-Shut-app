@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import Login from './Login'
+import Register from './Register'
 import { Route} from 'react-router-dom'
 import '../css/Main.css'
 import { getAllTopics } from '../services/api-helper'
@@ -42,31 +43,52 @@ export default class Main extends Component {
   render() {
     const topics = this.state.filteredTopics ? this.state.filteredTopics : this.state.topics
 
+    if (!this.props.currentUser ) return <div>loading</div>
     return (
       <main>
         <div>
-          <h1>Welcome {this.props.currentUser.username}!</h1>
+        {<h1>Welcome {this.props.currentUser.username}!</h1>}
         </div>
-        <Search onChange={this.searchChange} onSubmit={this.searchSubmit} value={this.state.filterValue} />
+       
         <div>
           <button onClick={this.props.handleLogOut}>sign out</button>
         </div>
         <div>
           <img src={this.props.currentUser.img} />
         </div>
+        <Route exact path='/' >
+          <Search onChange={this.searchChange} onSubmit={this.searchSubmit} value={this.state.filterValue} />
+          
+        </Route>
         
         
-        <ShowTopics topics={topics} />
+          <Route path='/topics/:id' render={(props) => 
+        <TopicThread {...props} />
+        }/>
+      
+        <Route path='/login'>
+          <Login
+            handleChange={this.props.handleChange}
+            userData={this.props.userData}
+            handleLogin={this.props.handleLogin}
+            currentUser={this.props.currentUser}
+          // handleLogOut={this.handleLogOut}
+          
+          />
+        </Route>
+        <Route path='/register' render={(props) => (
+          <Register
+            {...props}
+            // handleChange={this.handleChange}
+            handleRegister={this.props.handleRegister}
+         />
+        )}
+        />
+        
+        
 
-        <Route path='/topics/:id' render={(props) => {
-          const { id } = props.match.params;
-        return <TopicThread
-          id={id}
-          // messages={this.state.messages}
-        />
-      }}
-        />
-        {/* <Route path='topics/:id' render={props => <TopicThread topics={this.state.topics} />} /> */}
+     
+        
           
 
         

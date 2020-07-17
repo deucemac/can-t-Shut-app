@@ -10,3 +10,9 @@ export const getOneTopic = async (id) => {
   console.log(resp.data)
   return resp.data;
 }
+
+export const addMessage = async (id, messageContent) => {
+  const resp = await api.post(`/topics/${id}/messages`, {message: messageContent});
+  console.log(resp.data)
+  return resp.data
+}
