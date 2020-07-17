@@ -99,7 +99,7 @@ class App extends Component {
             
           />
         </Route>  */}
-        <Route exact path='/' render={(props) => (
+        {this.state.currentUser && <Route path='/' render={(props) => (
           <Main
             {...props}
             currentUser={this.state.currentUser}
@@ -107,7 +107,7 @@ class App extends Component {
             handleLogOut={this.handleLogOut}
           />
         )}
-        />
+        />}
 
         <Route path='/register' render={(props) => (
           <Register
