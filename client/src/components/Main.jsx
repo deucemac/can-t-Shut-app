@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
-import Login from './Login'
-import Topics from './ShowTopics'
-import { Link } from 'react-router-dom'
+
+import { Route} from 'react-router-dom'
 import '../css/Main.css'
 import { getAllTopics } from '../services/api-helper'
 import ShowTopics from './ShowTopics'
@@ -43,7 +41,6 @@ export default class Main extends Component {
 
   render() {
     const topics = this.state.filteredTopics ? this.state.filteredTopics : this.state.topics
-    // const TOPICS = 
 
     return (
       <main>
@@ -65,10 +62,12 @@ export default class Main extends Component {
           const { id } = props.match.params;
         return <TopicThread
           id={id}
-          topics={topics}
+          // messages={this.state.messages}
         />
       }}
         />
+        {/* <Route path='topics/:id' render={props => <TopicThread topics={this.state.topics} />} /> */}
+          
 
         
 
