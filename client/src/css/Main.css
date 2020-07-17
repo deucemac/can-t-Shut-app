@@ -4,8 +4,9 @@ img {
 }
 main {
   display: flex;
-  flex-direction: column;
+  flex-direction: wrap;
 }
-main button {
+
+/* main button {
 width: 70px;
-}
+} */
