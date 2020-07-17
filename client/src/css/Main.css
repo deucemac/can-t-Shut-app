@@ -1,0 +1,11 @@
+img {
+  height: auto;
+  width: 300px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
+main button {
+width: 70px;
+}

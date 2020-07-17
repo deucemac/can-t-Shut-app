@@ -1,21 +1,63 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Register(props) {
-  return (
-    <div className="register">
-      <form onSubmit={props.handleRegister}>
-        <div className="pair">
-          <label htmlFor='username'>Username</label>
-          <input name='username' type='text' value={props.userData.username} onChange={props.handleChange} />
-        </div>
+export default class Register extends Component {
+  state = {
+    username: "",
+    password: "",
+    img: ""
+  }
 
-        <div className="pair">
-          <label htmlFor='password'>Password</label>
-          <input name='password' type='password' value={props.userData.password} onChange={props.handleChange} />
-        </div>
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value
+    })
+  }
 
-        <input type='submit' value="Register" />
+  render() {
+    const { username, password, img } = this.state;
+    const { handleRegister, history } = this.props;
+
+    return (
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        handleRegister(this.state);
+        history.push('/');
+      }}>
+        <h3>Register</h3>
+        <label>
+          Username:
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={this.handleChange}
+          />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleChange}
+          />
+        </label>
+        <br />
+        <label>
+          img:
+          <input
+            type="text"
+            name="img"
+            value={img}
+            onChange={this.handleChange}
+          />
+        </label>
+        <br />
+        <button>Submit</button>
       </form>
-    </div>
-  )
+    )
+  }
 }
+

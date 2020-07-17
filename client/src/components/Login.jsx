@@ -10,13 +10,7 @@ export default class Login extends Component {
       <>
         <header>
 
-          {this.props.currentUser ?
-            (<>
-              <h2>Hello {this.props.currentUser.username}</h2>
-              {/* <button onClick={this.props.handleLogout}>sign out</button> */}
-            </>)
-            
-             :
+       
             <div className="login">
               <form onSubmit={this.props.handleLogin}>
                 <div className="pair">
@@ -29,12 +23,13 @@ export default class Login extends Component {
                   <input name='password' type='password' value={this.props.userData.password} onChange={this.props.handleChange} />
                 </div>
 
-                <input type='submit' value="Login" />
-                <button>Log In</button>
+                {/* <input type='submit'/> */}
+              <button>Log In</button>
+              
               </form>
             </div>
 
-          }
+         
         </header>
       </>
     )

@@ -3,24 +3,22 @@ import { Route } from 'react-router-dom'
 import Login from './Login'
 import Topics from './Topics'
 import { Link } from 'react-router-dom'
+import '../css/Main.css'
 
 
 export default class Main extends Component {
 
 
   render() {
-
+   
     return (
       <main>
-        <h1>Home</h1>
-        <button onClick={this.props.handleLogout}>sign out</button>
+        <h1>{`Welcome ${this.props.currentUser.username}!`}</h1>
+        <button onClick={this.props.handleLogOut}>sign out</button>
+        <img src={this.props.currentUser.img} />
         
-        {/* <Route path='/topics' render={(props) => (
-          <Topics
-            {...props}
-            handleLogOut={this.props.handleLogOut}
-          />
-        )} /> */}
+        
+     
        
      </main>
     )
