@@ -16,3 +16,8 @@ export const addMessage = async (id, messageContent) => {
   console.log(resp.data)
   return resp.data
 }
+
+export const addTopic = async (topicName) => {
+  const resp = await api.post('/topics', { topic: topicName });
+  return resp.data
+}

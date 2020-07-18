@@ -3,17 +3,17 @@ import Login from './Login'
 import Register from './Register'
 import { Route} from 'react-router-dom'
 import '../css/Main.css'
-import { getAllTopics } from '../services/api-helper'
+import { getAllTopics, addTopic } from '../services/api-helper'
 import ShowTopics from './ShowTopics'
 import Search from './Search'
 import TopicThread from './TopicThread'
+import CreateTopic from './CreateTopic'
 
 
 export default class Main extends Component {
   state = {
     topics: []
-    // filterValue: '',
-    // filteredTopics: null
+   
   }
 
   componentDidMount() {
@@ -26,22 +26,16 @@ export default class Main extends Component {
     console.log(this.state.topics)
   }
 
-  // searchChange = (e) => {
-  //   const filter = () => {
-  //     const filteredTopics = this.state.topics.filter(topic => {
-  //       return topic.name.toLowerCase().includes(this.state.filterValue.toLowerCase())
-  //     })
-  //     this.setState({ filteredTopics })
-  //   }
-  //   this.setState({ filterValue: e.target.value }, filter)
-  // }
+  handleTopicCreate = async (topicInfo) => {
+    const newTopic = await addTopic(topicInfo);
+    this.setState(prevState => ({
+      topics: [...prevState.topics, newTopic]
+    }))
+  }
 
-  // searchSubmit = (e) => {
-  //   e.preventDefault()
-  // }
+
 
   render() {
-    // const topics = this.state.filteredTopics ? this.state.filteredTopics : this.state.topics
 
     if (!this.props.currentUser ) return <div>  <Login
     handleChange={this.props.handleChange}
@@ -63,6 +57,7 @@ export default class Main extends Component {
         <div>
           <img src={this.props.currentUser.img} />
         </div>
+        <CreateTopic handleTopicCreate={this.handleTopicCreate} />
         {/* <Route path='/' >
           <Search onChange={this.searchChange} onSubmit={this.searchSubmit} value={this.state.filterValue} />
         </Route> */}
