@@ -10,6 +10,7 @@ import TopicThread from './TopicThread'
 import CreateTopic from './CreateTopic'
 
 
+
 export default class Main extends Component {
   state = {
     topics: []
@@ -32,6 +33,13 @@ export default class Main extends Component {
       topics: [...prevState.topics, newTopic]
     }))
   }
+
+  // addMessage = async (messageContent) => {
+  //   const newMessage = addMessage(messageContent)
+  //   this.setState(prevState => ({
+  //     messages
+  //   }))
+  // }
 
 
 
@@ -79,6 +87,7 @@ export default class Main extends Component {
         <Route path='/topics/:id'>
           <TopicThread topics={this.state.topics}/>
         </Route>
+        {/* <CreateMessage handleMessageCreate={} /> */}
       
         <Route path='/login'>
           <Login

@@ -3,14 +3,15 @@ import React, { Component } from 'react'
 // import {addMessage} from '../services/api-helper'
 import { withRouter } from 'react-router-dom'
 import '../css/Topicthread.css'
+import { getAllMessages } from '../services/api-helper'
+import Messages from './Messages'
 
 
 class TopicThread extends Component {
-  // state = {
-  //   topic: null,
-  //   // messages: null,
-  //   message: ''
-  // }
+  state = {
+    messages: []
+   
+  }
 
   // componentDidMount() {
   //   this.fetchTopic();
@@ -53,9 +54,25 @@ class TopicThread extends Component {
   //   this.setState({ message })
   // }
 
+  componentDidMount() {
+    this.fetchMessages();
+  }
 
-  
-  
+  fetchMessages = async () => {
+    const id = this.props.match.params.id
+    console.log(id)
+    const messages = await getAllMessages(parseInt(id))
+    this.setState({ messages })
+    console.log(this.state.messages)
+  }
+
+  // fetchMessages = async () => {
+  //   const id = this.props.match.params.id
+  //   const messages = await getAllMessages(parseInt(id))
+
+  //   { this.setState({ messages }).bind(this)}
+  // }
+
   render() {
     // const { topic } = this.state;
 
@@ -102,6 +119,15 @@ class TopicThread extends Component {
           ))
           }
           </div>
+          {/* <div>
+            {this.state.messages.map(message => (
+              <p>{message.content}</p>
+          ))}
+          </div> */}
+          {/* {this.state.messages && <Messages
+            id={id}
+            messages={this.state.messages}
+          />} */}
           </div>
       </>
     )

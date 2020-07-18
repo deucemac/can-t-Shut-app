@@ -11,13 +11,20 @@ export const getOneTopic = async (id) => {
   return resp.data;
 }
 
-export const addMessage = async (id, messageContent) => {
-  const resp = await api.post(`/topics/${id}/messages`, {message: messageContent});
-  console.log(resp.data)
-  return resp.data
-}
 
 export const addTopic = async (topicName) => {
   const resp = await api.post('/topics', { topic: topicName });
+  return resp.data
+}
+
+export const getAllMessages = async (topic_id) => {
+  const resp = await api.get(`/topics/${topic_id}/messages`)
+  console.log(resp.data)
+  return resp.data;
+}
+
+export const addMessage = async (topic_id, messageContent) => {
+  const resp = await api.post(`/topics/${topic_id}/messages`, {message: messageContent});
+  console.log(resp.data)
   return resp.data
 }
