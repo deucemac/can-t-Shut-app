@@ -1,16 +1,17 @@
 import { loginUser, verifyUser, registerUser, removeToken } from './services/auth'
 import Login from './components/Login'
 import './App.css';
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, withRouter } from 'react-router-dom'
 import Main from './components/Main'
 import Register from './components/Register'
 import ShowTopics from './components/ShowTopics'
+import Search from './components/Search'
 
 
 import React, { Component } from 'react'
 import { getAllTopics } from './services/api-helper';
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -19,6 +20,8 @@ export default class App extends Component {
         username: '',
         password: ''
       },
+      filterValue: '',
+      filteredTopics: null,
       currentUser: null
     }
     // this.handleLogOut=this.handleLogOut.bind(this)
@@ -34,6 +37,7 @@ export default class App extends Component {
     this.setState({
       topics
     })
+    console.log(this.state.topics)
   }
 
   handleChange = (e) => {
@@ -81,16 +85,32 @@ export default class App extends Component {
     this.props.history.push('/login')
   }
 
+  searchChange = (e) => {
+    const filter = () => {
+      const filteredTopics = this.state.topics.filter(topic => {
+        return topic.name.toLowerCase().includes(this.state.filterValue.toLowerCase())
+      })
+      this.setState({ filteredTopics })
+    }
+    this.setState({ filterValue: e.target.value }, filter)
+  }
+
+  searchSubmit = (e) => {
+    e.preventDefault()
+  }
+
 
   render() {
-    
+    const topics = this.state.filteredTopics ? this.state.filteredTopics : this.state.topics
     
     return (
       <div>
         <h1>Welcome</h1>
 
         
-
+        
+          <Search onChange={this.searchChange} onSubmit={this.searchSubmit} value={this.state.filterValue} />
+        
         
           <Main
             currentUser={this.state.currentUser}
@@ -102,7 +122,14 @@ export default class App extends Component {
         />
         
         
-        {this.state.currentUser ? <ShowTopics topics={this.state.topics}/> : null }
+        {/* {this.state.currentUser ? <ShowTopics topics={this.state.topics}/> : null } */}
+        {topics.map(topic => (
+          <>
+            <React.Fragment key={topic.id}>
+      <Link to={`/topics/${topic.id}`}><p>{topic.name}</p></Link>
+    </React.Fragment>
+          </>
+        ))}
         
         
         
@@ -117,3 +144,4 @@ export default class App extends Component {
   }
 }
 
+export default withRouter(App)

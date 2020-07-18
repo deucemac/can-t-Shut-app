@@ -11,9 +11,9 @@ import TopicThread from './TopicThread'
 
 export default class Main extends Component {
   state = {
-    topics: [],
-    filterValue: '',
-    filteredTopics: null
+    topics: []
+    // filterValue: '',
+    // filteredTopics: null
   }
 
   componentDidMount() {
@@ -22,28 +22,35 @@ export default class Main extends Component {
 
   fetchTopics = async () => {
     const topics = await getAllTopics();
-    console.log(topics)
     this.setState({ topics });
+    console.log(this.state.topics)
   }
 
-  searchChange = (e) => {
-    const filter = () => {
-      const filteredTopics = this.state.topics.filter(topic => {
-        return topic.name.toLowerCase().includes(this.state.filterValue.toLowerCase())
-      })
-      this.setState({ filteredTopics })
-    }
-    this.setState({ filterValue: e.target.value }, filter)
-  }
+  // searchChange = (e) => {
+  //   const filter = () => {
+  //     const filteredTopics = this.state.topics.filter(topic => {
+  //       return topic.name.toLowerCase().includes(this.state.filterValue.toLowerCase())
+  //     })
+  //     this.setState({ filteredTopics })
+  //   }
+  //   this.setState({ filterValue: e.target.value }, filter)
+  // }
 
-  searchSubmit = (e) => {
-    e.preventDefault()
-  }
+  // searchSubmit = (e) => {
+  //   e.preventDefault()
+  // }
 
   render() {
-    const topics = this.state.filteredTopics ? this.state.filteredTopics : this.state.topics
+    // const topics = this.state.filteredTopics ? this.state.filteredTopics : this.state.topics
 
-    if (!this.props.currentUser ) return <div>loading</div>
+    if (!this.props.currentUser ) return <div>  <Login
+    handleChange={this.props.handleChange}
+    userData={this.props.userData}
+    handleLogin={this.props.handleLogin}
+    currentUser={this.props.currentUser}
+  // handleLogOut={this.handleLogOut}
+  /></div>
+  
     return (
       <main>
         <div>
@@ -56,15 +63,16 @@ export default class Main extends Component {
         <div>
           <img src={this.props.currentUser.img} />
         </div>
-        <Route exact path='/' >
+        {/* <Route path='/' >
           <Search onChange={this.searchChange} onSubmit={this.searchSubmit} value={this.state.filterValue} />
-          
+        </Route> */}
+        
+          {/* <Route path='/topics/:id' render={(props) => 
+        <TopicThread topics={topics} />
+      }/> */}
+        <Route path='/topics/:id'>
+          <TopicThread topics={this.state.topics}/>
         </Route>
-        
-        
-          <Route path='/topics/:id' render={(props) => 
-        <TopicThread {...props} />
-        }/>
       
         <Route path='/login'>
           <Login
