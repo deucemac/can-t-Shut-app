@@ -1,11 +1,11 @@
 import { loginUser, verifyUser, registerUser, removeToken } from './services/auth'
-import Login from './components/Login'
+// import Login from './components/Login'
 import './App.css';
-import { Link, Route, withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import Main from './components/Main'
-import Register from './components/Register'
-import ShowTopics from './components/ShowTopics'
-import Search from './components/Search'
+// import Register from './components/Register'
+// import ShowTopics from './components/ShowTopics'
+// import Search from './components/Search'
 
 
 import React, { Component } from 'react'
@@ -100,6 +100,8 @@ class App extends Component {
   }
 
 
+
+
   render() {
     const topics = this.state.filteredTopics ? this.state.filteredTopics : this.state.topics
     
@@ -109,7 +111,7 @@ class App extends Component {
 
         
         
-          <Search onChange={this.searchChange} onSubmit={this.searchSubmit} value={this.state.filterValue} />
+          {/* <Search onChange={this.searchChange} onSubmit={this.searchSubmit} value={this.state.filterValue} /> */}
         
         
           <Main
@@ -119,17 +121,22 @@ class App extends Component {
           handleRegister={this.handleRegister}
           userData={this.state.userData}
           handleChange={this.handleChange}
+          // topics={this.state.topics}
+          onChange={this.searchChange}
+          onSubmit={this.searchSubmit}
+          value={this.state.filterValue}
+          topics={topics}
         />
         
         
         {/* {this.state.currentUser ? <ShowTopics topics={this.state.topics}/> : null } */}
-        {topics.map(topic => (
+        {/* {topics.map(topic => (
           <>
             <React.Fragment key={topic.id}>
       <Link to={`/topics/${topic.id}`}><p>{topic.name}</p></Link>
     </React.Fragment>
           </>
-        ))}
+        ))} */}
         
         
         

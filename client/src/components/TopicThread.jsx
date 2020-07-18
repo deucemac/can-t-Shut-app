@@ -98,7 +98,7 @@ class TopicThread extends Component {
         <div className='messages'>
         {topic && 
           topic.messages.map(message => (
-              <p>{message.content}</p>    
+              <p key={message.id}>{message.content}</p>    
           ))
           }
           </div>

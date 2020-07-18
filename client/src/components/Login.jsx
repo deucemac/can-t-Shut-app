@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Link, Route, withRouter } from 'react-router-dom'
-import Main from './Main'
+// import { Link, Route, withRouter } from 'react-router-dom'
+// import Main from './Main'
 
 
 export default class Login extends Component {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Login from './Login'
 import Register from './Register'
-import { Route} from 'react-router-dom'
+import { Link, Route} from 'react-router-dom'
 import '../css/Main.css'
 import { getAllTopics, addTopic } from '../services/api-helper'
-import ShowTopics from './ShowTopics'
+// import ShowTopics from './ShowTopics'
 import Search from './Search'
 import TopicThread from './TopicThread'
 import CreateTopic from './CreateTopic'
@@ -50,12 +50,23 @@ export default class Main extends Component {
         <div>
         {<h1>Welcome {this.props.currentUser.username}!</h1>}
         </div>
-       
+        <div>
+        <Search onChange={this.props.onChange} onSubmit={this.props.onSubmit} value={this.props.value}/>
+       </div>
         <div>
           <button onClick={this.props.handleLogOut}>sign out</button>
         </div>
         <div>
-          <img src={this.props.currentUser.img} />
+        {this.props.topics.map(topic => (
+          <>
+            <React.Fragment key={topic.id}>
+      <Link to={`/topics/${topic.id}`}><p>{topic.name}</p></Link>
+    </React.Fragment>
+          </>
+        ))} 
+        </div>
+        <div>
+          <img src={this.props.currentUser.img} alt='profile'/>
         </div>
         <CreateTopic handleTopicCreate={this.handleTopicCreate} />
         {/* <Route path='/' >
@@ -76,7 +87,6 @@ export default class Main extends Component {
             handleLogin={this.props.handleLogin}
             currentUser={this.props.currentUser}
           // handleLogOut={this.handleLogOut}
-          
           />
         </Route>
         <Route path='/register' render={(props) => (
