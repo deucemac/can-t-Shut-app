@@ -3,11 +3,12 @@ import Login from './Login'
 import Register from './Register'
 import { Link, Route, withRouter} from 'react-router-dom'
 import '../css/Main.css'
-import { getAllTopics, getAllMessages, addTopic, addMessage } from '../services/api-helper'
+import { getAllTopics, getAllMessages, addTopic, addMessage, deleteMessage } from '../services/api-helper'
 // import ShowTopics from './ShowTopics'
 import Search from './Search'
 import TopicThread from './TopicThread'
 import CreateTopic from './CreateTopic'
+
 
 
 
@@ -47,24 +48,31 @@ class Main extends Component {
   }
 
 
-  // fetchMessages = async () => {
-  //   const id = this.props.topics.id
-  //   console.log(id)
-  //   const messages = await getAllMessages(parseInt(id))
-  //   this.setState({ messages })
-  //   console.log(this.state.messages)
-  // }
 
-  // addMessage = async (messageContent) => {
-  //   const newMessage = addMessage(messageContent)
-  //   this.setState(prevState => ({
-  //     messages
-  //   }))
-  // }
 
   showTopics = () => {
     this.setState(prevState=>({
       currentTopics: !prevState.currentTopics
+    }))
+  }
+
+  addNewMessage = (newMessage) => {
+    const topicUpdate = this.state.topics.find(topic => topic.id == newMessage.topic_id)
+    console.log(topicUpdate)
+    topicUpdate.messages.push(newMessage)
+    this.setState(prevState => ({
+      topics: prevState.topics.map(topic => topicUpdate.id == topic.id ? topicUpdate : topic)
+    }))
+  }
+
+  handleMessageDelete = async (message) => {
+    const topicRemove = this.state.topics.find(topic => topic.id == message.topic_id)
+    console.log(this.state.topics)
+    console.log(topicRemove)
+    console.log(message)
+    await deleteMessage(topicRemove.id, message.id)
+    this.setState(prevState => ({
+      messages: prevState.messages.filter(message => message.topic_id != topicRemove.id)
     }))
   }
 
@@ -95,7 +103,7 @@ class Main extends Component {
           </div>
           <CreateTopic handleTopicCreate={this.handleTopicCreate} />
         <div>
-        {this.state.currentTopics ?  this.props.topics.map(topic => (
+        {this.state.currentTopics ?  this.state.topics.map(topic => (
           <>
             <React.Fragment key={topic.id}>
               <Link to={`/topics/${topic.id}`}><p>{topic.name}</p></Link>
@@ -109,7 +117,9 @@ class Main extends Component {
         <Route path='/topics/:id' render={(props) => (
           <TopicThread
             {...props}
-            topics={this.state.topics}
+              topics={this.state.topics}
+              addNewMessage={this.addNewMessage}
+              handleMessageDelete={this.handleMessageDelete}
           />
           )}
           />

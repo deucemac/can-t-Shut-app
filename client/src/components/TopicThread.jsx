@@ -7,6 +7,7 @@ import { getAllMessages, addMessage } from '../services/api-helper'
 import Messages from './Messages'
 import CreateMessage from './CreateMessage'
 import { getAllUsers } from '../services/api-helper'
+import '../css/Topicthread.css'
 
 
 class TopicThread extends Component {
@@ -16,31 +17,15 @@ class TopicThread extends Component {
    
   }
 
-  // componentDidMount() {
+  componentDidMount() {
   //   this.fetchTopic();
   // this.changeTopic();
   // this.addMessage();
-  // }
+    this.fetchUsers();
+  }
 
 
-  // fetchTopic = async () => {
-  //   const topic = await getOneTopic(this.props.match.params.id)
-  // if (!this.state.topic)
-  // this.setState({ topic })
-  // console.log(this.state.topic)
-  // console.log(this.state.topic.messages[0])
-  // }
 
-  
-
-  // changeTopic = async () => {
-  //   const topic = await getOneTopic(this.props.match.params.id)
-  //   if (this.state.topic) {
-  //     this.setState(prevState => ({
-  //       topic: {...prevState.topic, topic}
-  //     }))
-  //   }
-  // }
 
   // handleChange = (e) => {
   //   const { name, value } = e.target
@@ -70,56 +55,26 @@ class TopicThread extends Component {
   //   console.log(this.state.messages)
   // }
 
-  // handleMessageCreate = async (e) => {
-  //   e.preventDefault();
-  //   const newMessage = await addMessage(this.props.match.params.id, { message: this.state.message })
-  //   this.setState(prevState =>({
-  //     message
-  //   }))
-  // }
+  handleMessageCreate = async (message) => {
+    
+    const newMessage = await addMessage(this.props.match.params.id,  message )
+    this.props.addNewMessage(newMessage)
+  }
+
   fetchUsers = async () => {
     const users = await getAllUsers()
     this.setState({ users })
   }
-
+    
 
   render() {
-    // const { topic } = this.state;
-
-    // return (
-    //   <div>
-    //     {topic && (
-    //       <>
-    //         <h1>{this.state.topic.name}</h1>
-    //         {topic.messages.map(message => (
-    //           <p>{message.content}</p>
-    //         ))}
-    //       </>
-    //     )}
-    /* {topic &&
-          <form onSubmit={this.addMessage}>
-          <input
-          name='message'
-          type='text'
-          value={this.state.message}
-          onChange={this.handleChange} 
-          />
-          <button>send</button>
-        </form>
-        } */
-    //     </div>
-    //   )
-    // }
+    
     const { id } = this.props.match.params
     let topic = this.props.topics.find(topic => {
       return topic.id === parseInt(id)
     })
     console.log(topic)
-    let profilePics = topic.messages.forEach(message => {
-      if (message.user_id === this.state.users.id) {
-        
-      }
-    })
+    
     return (
       <>
         <div className='thread-container'>
@@ -129,25 +84,30 @@ class TopicThread extends Component {
           </div>}
         <div className='messages'>
         {topic && 
-          topic.messages.map(message => (
-            <>
+              topic.messages.map(message => {
+                let person = this.state.users.find(user => message.user_id == user.id)
+                console.log(person)
+                return (
+                  <>
+                  <div className='message-container'>
               <p key={message.id}>{message.content}</p>
-              {/* { 
-                (message.user_id === this.state.users.id) ? message.user.img : ''} */}
-              </>
-          ))
+                      {person && <img className='user-image' src={person.img} />}
+                    </div>
+                    <div className='button-container'>
+                      <p onClick={() => this.props.handleMessageDelete(message)} className='delete'>delete</p>
+                      <p className='delete'>edit</p>
+                    </div>
+                  </>
+                )
+              })
           }
           </div>
-          {/* <div>
-            {this.state.messages.map(message => (
-              <p>{message.content}</p>
-          ))}
-          </div> */}
-          {/* <CreateMessage id={id} handleMessageCreate={handleMessageCreate}/> */}
-          {/* {this.state.messages && <Messages
-            id={id}
-            messages={this.state.messages}
-          />} */}
+          
+          
+          
+          </div>
+          <div>
+            <CreateMessage handleMessageCreate={this.handleMessageCreate}/>
           </div>
       </>
     )

@@ -1,31 +1,34 @@
 import React, { Component } from 'react'
+import '../css/Createmessage.css'
 
 export default class CreateMessage extends Component {
   state = {
-    name: ''
+    content: ''
   }
 
   handleChange = (e) => {
     const { value } = e.target;
     this.setState({
-      name: value
+      content: value
     })
   }
 
   render() {
-    const { handleMessageCreate, history, id } = this.props;
+    const { handleMessageCreate } = this.props;
     return (
       <form onSubmit={(e) => {
         e.preventDefault();
         handleMessageCreate(this.state);
-        history.push(`/topics/${id}`);
+
       }}>
-        <h3>Create Food</h3>
+        <h3></h3>
         <label>
-          Name:
+          add message:
           <input
+            className='send'
+            placeholder='Send a message...'
             type='text'
-            value={this.state.name}
+            value={this.state.content}
             onChange={this.handleChange}
           />
         </label>

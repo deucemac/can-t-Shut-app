@@ -33,3 +33,8 @@ export const getAllUsers = async () => {
   const resp = await api.get('/users')
   return resp.data
 }
+
+export const deleteMessage = async (topic_id, messageId) => {
+  const resp = await api.delete(`/topics/${topic_id}/messages/${messageId}`)
+  return resp.data
+}

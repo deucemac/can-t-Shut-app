@@ -5,11 +5,46 @@
 }
 
 
+.message-container {
+  display: flex;
+  border: 2px solid grey; 
+  flex-direction: row;
+  justify-content: space-between;
 
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .message-container img {
+/* margin-right: 20px; */
+/* margin-left: 15px; */
+/* margin: 0 0 0 20px; */
+/* }  */
 
 .messages {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 300px;
+  width: 400px;
+}
+
+.user-image {
+  /* height: 200px; */
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  /* margin-top: 10em; */
+}
+
+.delete {
+  background-color: chartreuse;
+  width: 4vw;
+  height: 20px;
+  padding: 10px;
+  border-radius: 2ch;
+  cursor: pointer;
 }

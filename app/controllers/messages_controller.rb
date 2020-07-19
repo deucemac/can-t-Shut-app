@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :find_topic, only: :index
+  before_action :find_topic, only: [:index, :destroy]
   before_action :set_message, only: [:destroy, :update]
   before_action :authorize_request, only: [:create, :destroy, :update]
 
@@ -38,6 +38,7 @@ class MessagesController < ApplicationController
   end
 
   def destroy
+    # if @message.topic_id == @topic.id
    if @message.user_id == @current_user.id
      @message.destroy
      render json: 'deleted'

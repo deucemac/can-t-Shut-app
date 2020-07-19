@@ -19,7 +19,7 @@ main {
 .center {
   position: absolute;
   top: 40%;
-  right: 37%;
+  right: 53%;
   color: white;
   cursor: pointer;
 }
@@ -32,6 +32,8 @@ main {
 
 .middle-container {
   margin-left: 100px;
+  border: 2px solid black;
+  width: 450px;
 }
 
 
