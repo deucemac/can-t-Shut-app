@@ -19,11 +19,13 @@ export default class CreateMessage extends Component {
       <form onSubmit={(e) => {
         e.preventDefault();
         handleMessageCreate(this.state);
+        this.setState({
+          content: ''
+        })
 
       }}>
         <h3></h3>
         <label>
-          add message:
           <input
             className='send'
             placeholder='Send a message...'
@@ -32,7 +34,7 @@ export default class CreateMessage extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <button>Submit</button>
+        <button className='submit'>Submit</button>
       </form>
     )
   }

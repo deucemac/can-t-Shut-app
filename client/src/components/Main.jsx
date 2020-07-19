@@ -113,7 +113,7 @@ class Main extends Component {
           </div>
         </div>
         
-        <div className='middle-container'>
+        {<div className='middle-container'>
         <Route path='/topics/:id' render={(props) => (
           <TopicThread
             {...props}
@@ -123,7 +123,7 @@ class Main extends Component {
           />
           )}
           />
-          </div>
+          </div>}
 
 
         

@@ -93,6 +93,7 @@ class TopicThread extends Component {
               <p key={message.id}>{message.content}</p>
                       {person && <img className='user-image' src={person.img} />}
                     </div>
+                      {person && <p>-{person.username}</p>}
                     <div className='button-container'>
                       <p onClick={() => this.props.handleMessageDelete(message)} className='delete'>delete</p>
                       <p className='delete'>edit</p>
