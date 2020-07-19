@@ -28,3 +28,8 @@ export const addMessage = async (topic_id, messageContent) => {
   console.log(resp.data)
   return resp.data
 }
+
+export const getAllUsers = async () => {
+  const resp = await api.get('/users')
+  return resp.data
+}

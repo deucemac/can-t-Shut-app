@@ -3,13 +3,16 @@ import React, { Component } from 'react'
 // import {addMessage} from '../services/api-helper'
 import { withRouter } from 'react-router-dom'
 import '../css/Topicthread.css'
-import { getAllMessages } from '../services/api-helper'
+import { getAllMessages, addMessage } from '../services/api-helper'
 import Messages from './Messages'
+import CreateMessage from './CreateMessage'
+import { getAllUsers } from '../services/api-helper'
 
 
 class TopicThread extends Component {
   state = {
-    messages: []
+    messages: [],
+    users: []
    
   }
 
@@ -54,24 +57,31 @@ class TopicThread extends Component {
   //   this.setState({ message })
   // }
 
-  componentDidMount() {
-    this.fetchMessages();
-  }
-
-  fetchMessages = async () => {
-    const id = this.props.match.params.id
-    console.log(id)
-    const messages = await getAllMessages(parseInt(id))
-    this.setState({ messages })
-    console.log(this.state.messages)
-  }
+  // componentDidMount() {
+  //   this.fetchMessages();
+  // }
 
   // fetchMessages = async () => {
-  //   const id = this.props.match.params.id
+  //   // const id = this.props.match.params.id
+  //   let id = this.props.match.params.id
+  //   console.log(id)
   //   const messages = await getAllMessages(parseInt(id))
-
-  //   { this.setState({ messages }).bind(this)}
+  //   this.setState({ messages })
+  //   console.log(this.state.messages)
   // }
+
+  // handleMessageCreate = async (e) => {
+  //   e.preventDefault();
+  //   const newMessage = await addMessage(this.props.match.params.id, { message: this.state.message })
+  //   this.setState(prevState =>({
+  //     message
+  //   }))
+  // }
+  fetchUsers = async () => {
+    const users = await getAllUsers()
+    this.setState({ users })
+  }
+
 
   render() {
     // const { topic } = this.state;
@@ -105,6 +115,11 @@ class TopicThread extends Component {
       return topic.id === parseInt(id)
     })
     console.log(topic)
+    let profilePics = topic.messages.forEach(message => {
+      if (message.user_id === this.state.users.id) {
+        
+      }
+    })
     return (
       <>
         <div className='thread-container'>
@@ -115,7 +130,11 @@ class TopicThread extends Component {
         <div className='messages'>
         {topic && 
           topic.messages.map(message => (
-              <p key={message.id}>{message.content}</p>    
+            <>
+              <p key={message.id}>{message.content}</p>
+              {/* { 
+                (message.user_id === this.state.users.id) ? message.user.img : ''} */}
+              </>
           ))
           }
           </div>
@@ -124,6 +143,7 @@ class TopicThread extends Component {
               <p>{message.content}</p>
           ))}
           </div> */}
+          {/* <CreateMessage id={id} handleMessageCreate={handleMessageCreate}/> */}
           {/* {this.state.messages && <Messages
             id={id}
             messages={this.state.messages}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import '../css/Createtopic.css'
 
 class CreateTopic extends Component {
   state = {
@@ -25,12 +26,15 @@ class CreateTopic extends Component {
         history.push('/')
         }}>
         <input
+          className='create-topic'
         name='topic'
         type='text'
+        placeholder='Create a Topic'
         value={this.state.name}
         onChange={this.handleChange} 
         />
-        <button>+</button>
+        <button className="make-topic">+</button>
+        
       </form>
       
     )
