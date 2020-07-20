@@ -9,8 +9,14 @@
 }
 
 .thread-container h1 {
-  width: 450px;
+  width: 550px;
   border-bottom: 2px solid #bbb;
+}
+
+.message-body {
+  /* box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25); */
+  box-shadow: 0px -10px 10px rgb(240, 240, 240);
+      /* box-shadow: 0px 10px 10px rgb(240, 240, 240); */
 }
 
 
@@ -19,7 +25,7 @@
   flex-direction: row;
   justify-content: space-between;
   /* margin-left: 10px; */
-  width: 420px;
+  width: 520px;
   padding-right: 30px;
   padding-top: 20px;
   padding-bottom: 20px;

@@ -3,7 +3,7 @@ import Login from './Login'
 import Register from './Register'
 import { Link, Route, withRouter} from 'react-router-dom'
 import '../css/Main.css'
-import { getAllTopics, getAllMessages, addTopic, addMessage, deleteMessage } from '../services/api-helper'
+import { getAllTopics, addTopic, addMessage, deleteMessage } from '../services/api-helper'
 // import ShowTopics from './ShowTopics'
 import Search from './Search'
 import TopicThread from './TopicThread'
@@ -72,7 +72,7 @@ class Main extends Component {
     console.log(message)
     await deleteMessage(topicRemove.id, message.id)
     this.setState(prevState => ({
-      messages: prevState.messages.filter(message => message.topic_id != topicRemove.id)
+      messages: prevState.messages.filter(message => message.topic_id !== topicRemove.id)
     }))
   }
 

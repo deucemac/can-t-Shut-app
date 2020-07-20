@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-// import { getOneTopic } from '../services/api-helper'
-// import {addMessage} from '../services/api-helper'
 import { withRouter } from 'react-router-dom'
 import '../css/Topicthread.css'
-import { getAllMessages, addMessage } from '../services/api-helper'
-import Messages from './Messages'
+import { addMessage } from '../services/api-helper'
 import CreateMessage from './CreateMessage'
 import { getAllUsers, currentUser } from '../services/api-helper'
 import '../css/Topicthread.css'
@@ -75,7 +72,7 @@ class TopicThread extends Component {
                     {currentUser && <div className='message-container'
                       style={currentUser.id == message.user_id ? { backgroundColor: '#B7F3E8' } : { backgroundColor: 'white'}}>  
                     <p key={message.id}>{message.content}</p>
-                    {person && <img className='user-image' src={person.img} />}
+                    {person && <img className='user-image' src={person.img} alt='img' />}
                   </div>
                   }
                     <div className='button-container'>
