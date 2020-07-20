@@ -11,7 +11,9 @@ class TopicThread extends Component {
   state = {
     messages: [],
     users: [],
-    currentUser: []
+    currentUser: [],
+    edit: null,
+    editContent: ''
    
   }
 
@@ -37,6 +39,28 @@ class TopicThread extends Component {
   fetchUsers = async () => {
     const users = await getAllUsers()
     this.setState({ users })
+  }
+
+  editToggle = async (message) => {
+    this.setState({
+      edit: message.id,
+      editContent: message.content
+    })
+  }
+
+  handleEditChange = (e) => {
+    const { value } = e.target
+    this.setState({
+      editContent: value
+    })
+  }
+
+  handleEditSubmit = () => {
+    this.props.handleMessageUpdate(this.state.edit, { content: this.state.editContent })
+    this.setState({
+      edit: null,
+      editContent: ''
+    })
   }
     
 
@@ -69,14 +93,16 @@ class TopicThread extends Component {
                     <div className='message-body'>
                     {currentUser && <div className='message-container'
                       style={currentUser.id == message.user_id ? { backgroundColor: '#B7F3E8' } : { backgroundColor: 'white'}}>  
-                    <p key={message.id}>{message.content}</p>
+                        {this.state.edit == message.id ?
+                          <><input value={this.state.editContent} name='editContent' onChange={this.handleEditChange} /><button onClick={this.handleEditSubmit}>submit</button></> :
+                          <p key={message.id}>{message.content}</p>}
                     {person && <img className='user-image' src={person.img} alt='img' />}
                   </div>
                   }
                     <div className='button-container'>
                     {person && <p>-{person.username}</p>}
-                      <p onClick={() => this.props.handleMessageDelete(message)} className='delete'>delete</p>
-                      <p className='delete'>edit</p>
+                      {currentUser.id == message.user_id && <><p onClick={() => this.props.handleMessageDelete(message)} className='delete'>delete</p>
+                      <p onClick={() => this.editToggle(message)} className='delete'>edit</p></>}
                       </div>
                       </div>
                   </>

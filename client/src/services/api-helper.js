@@ -44,7 +44,7 @@ export const currentUser = async () => {
   return resp.data
 }
 
-export const messageUpdate = async (topic_id, messageId, messageContent) => {
-  const resp = await api.put(`/topics/${topic_id}/messages/${messageId}`, { message: messageContent });
+export const messageUpdate = async (messageId, messageContent) => {
+  const resp = await api.put(`/topics/1/messages/${messageId}`, { message: messageContent });
   return resp.data;
 }

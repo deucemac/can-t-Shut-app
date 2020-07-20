@@ -3,11 +3,12 @@ import Login from './Login'
 import Register from './Register'
 import { Link, Route, withRouter} from 'react-router-dom'
 import '../css/Main.css'
-import { getAllTopics, addTopic, addMessage, deleteMessage } from '../services/api-helper'
+import { getAllTopics, addTopic, addMessage, deleteMessage, messageUpdate } from '../services/api-helper'
 // import ShowTopics from './ShowTopics'
 import Search from './Search'
 import TopicThread from './TopicThread'
 import CreateTopic from './CreateTopic'
+import UpdateMessage from './UpdateMessage'
 
 
 
@@ -63,13 +64,15 @@ class Main extends Component {
     }))
   }
 
-  // handleMessageUpdate = async (messageToChange) => {
-  //   const topicUpdate = this.state.topics.find(topic => topic.id == message.topic_id)
-  //   const updatedMessage = await messageUpdate(topicUpdate.id, message.id, message)
-  //   this.setState(prevState => ({
-  //     messages: prevState.messages.map(message => message.id == messageToChange.id ? updatedMessage : message)
-  //   }))
-  // }
+  handleMessageUpdate = async (id, messageToChange) => {
+   
+    const updatedMessage = await messageUpdate(id, messageToChange)
+    let topicEdit = this.state.topics.find(topic => topic.id == updatedMessage.topic_id)
+    topicEdit.messages = topicEdit.messages.map(message => message.id == updatedMessage.id ? updatedMessage: message )
+    this.setState(prevState => ({
+      topics: prevState.topics.map(topic => topic.id == topicEdit.id ? topicEdit : topic)
+    }))
+  }
 
 
   render() {
@@ -80,7 +83,9 @@ class Main extends Component {
     handleLogin={this.props.handleLogin}
     currentUser={this.props.currentUser}
   // handleLogOut={this.handleLogOut}
-  /></div>
+    /></div>
+    
+
   
     return (
       <main>
@@ -114,14 +119,13 @@ class Main extends Component {
               topics={this.state.topics}
               addNewMessage={this.addNewMessage}
               handleMessageDelete={this.handleMessageDelete}
+              handleMessageUpdate={this.handleMessageUpdate}
           />
           )}
           />
           </div>}
 
-        {/* <Route path='/topics/:topic_id/messages/:id'>
-          <UpdateMessage handleMessageUpdate={this.handleMessageUpdate} />
-        </Route> */}
+        
 
         
         

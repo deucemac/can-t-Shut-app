@@ -31,11 +31,13 @@ export default class UpdateFood extends Component {
   }
 
   render() {
+    // const { handleMessageUpdate, message, history, id } = this.props;
     const { handleMessageUpdate, history, id } = this.props;
     return (
       <form onSubmit={(e) => {
         e.preventDefault();
         handleMessageUpdate(id, this.state);
+        // handleMessageUpdate();
         history.push('/topics/:id');
       }}>
         <h3>Update Food</h3>
