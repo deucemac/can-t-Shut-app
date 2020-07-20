@@ -64,8 +64,6 @@ class TopicThread extends Component {
               topic.messages.map(message => {
                 let person = this.state.users.find(user => message.user_id == user.id)
                 let currentUser = this.state.currentUser
-                console.log(currentUser)
-                console.log(person)
                 return (
                   <>
                     <div className='message-body'>
@@ -87,7 +85,7 @@ class TopicThread extends Component {
           }
           </div>
           
-          
+        
           
           </div>
           <div>

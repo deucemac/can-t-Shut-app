@@ -23,7 +23,6 @@ class Main extends Component {
 
   componentDidMount() {
     this.fetchTopics();
-    // this.fetchMessages();
   }
 
   fetchTopics = async () => {
@@ -38,17 +37,6 @@ class Main extends Component {
       topics: [...prevState.topics, newTopic]
     }))
   }
-
-  handleMessageCreate = async (e) => {
-    e.preventDefault();
-    const newMessage = await addMessage(this.props.match.params.id, { message: this.state.message })
-    this.setState(prevState =>({
-      messages: [...prevState.messages, newMessage]
-    }))
-  }
-
-
-
 
   showTopics = () => {
     this.setState(prevState=>({
@@ -67,15 +55,21 @@ class Main extends Component {
 
   handleMessageDelete = async (message) => {
     const topicRemove = this.state.topics.find(topic => topic.id == message.topic_id)
-    console.log(this.state.topics)
-    console.log(topicRemove)
-    console.log(message)
+    const index = topicRemove.messages.indexOf(message)
     await deleteMessage(topicRemove.id, message.id)
+    topicRemove.messages.splice(index, 1)
     this.setState(prevState => ({
-      messages: prevState.messages.filter(message => message.topic_id !== topicRemove.id)
+      topics: prevState.topics.filter(topic => topic.id !== topicRemove.id ? topicRemove : topic)
     }))
   }
 
+  // handleMessageUpdate = async (messageToChange) => {
+  //   const topicUpdate = this.state.topics.find(topic => topic.id == message.topic_id)
+  //   const updatedMessage = await messageUpdate(topicUpdate.id, message.id, message)
+  //   this.setState(prevState => ({
+  //     messages: prevState.messages.map(message => message.id == messageToChange.id ? updatedMessage : message)
+  //   }))
+  // }
 
 
   render() {
@@ -125,6 +119,9 @@ class Main extends Component {
           />
           </div>}
 
+        {/* <Route path='/topics/:topic_id/messages/:id'>
+          <UpdateMessage handleMessageUpdate={this.handleMessageUpdate} />
+        </Route> */}
 
         
         
@@ -138,17 +135,14 @@ class Main extends Component {
           <img className='img-profile' src={this.props.currentUser.img} alt='profile'/>
           </div>
           </div>
-        {/* <Route path='/' >
-          <Search onChange={this.searchChange} onSubmit={this.searchSubmit} value={this.state.filterValue} />
-        </Route> */}
         
-          {/* <Route path='/topics/:id' render={(props) => 
-        <TopicThread topics={topics} />
-      }/> */}
+        
+        
+          
        
         
           
-        {/* <CreateMessage handleMessageCreate={} /> */}
+        
       
         <Route path='/login'>
           <Login
