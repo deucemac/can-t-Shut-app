@@ -38,3 +38,8 @@ export const deleteMessage = async (topic_id, messageId) => {
   const resp = await api.delete(`/topics/${topic_id}/messages/${messageId}`)
   return resp.data
 }
+
+export const currentUser = async () => {
+  const resp = await api.get('/current')
+  return resp.data
+}

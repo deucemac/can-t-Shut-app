@@ -32,8 +32,10 @@ main {
 
 .middle-container {
   margin-left: 100px;
-  border: 2px solid black;
+  border-right: 2px solid grey;
+  border-left: 2px solid grey;
   width: 450px;
+  height: 100vh;
 }
 
 
@@ -51,3 +53,18 @@ main {
   margin-top: 10em;
 }
 
+.sign-out {
+  font-size: 18px;
+  height:46px;
+  cursor: pointer;
+  padding: 12px 20px 12px 20px;
+  border: 1px solid #ddd;
+}
+
+.sign-up {
+  font-size: 18px;
+  height:46px;
+  cursor: pointer;
+  padding: 12px 20px 12px 20px;
+  border: 1px solid #ddd;
+}

@@ -145,7 +145,7 @@ class App extends Component {
          
 
 
-        <Link to='/register'><p>Sign Up</p></Link>
+        {/* <Link to='/register'><p>Sign Up</p></Link> */}
       </div>
     )
   }

@@ -132,7 +132,7 @@ class Main extends Component {
         
         <div className='right-container'>
           <div>
-          <button onClick={this.props.handleLogOut}>sign out</button>
+          <button className='sign-out' onClick={this.props.handleLogOut}>sign out</button>
         </div>
          <div className='img-container-two'>
           <img className='img-profile' src={this.props.currentUser.img} alt='profile'/>
@@ -167,7 +167,7 @@ class Main extends Component {
          />
         )}
         />
-        
+        <Link to='/register'><button className='sign-up'>Sign Up</button></Link>
         
 
      

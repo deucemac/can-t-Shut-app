@@ -34,7 +34,7 @@ export default class CreateMessage extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <button className='submit'>Submit</button>
+        <button className='submit'>+</button>
       </form>
     )
   }

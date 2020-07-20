@@ -6,54 +6,30 @@ import '../css/Topicthread.css'
 import { getAllMessages, addMessage } from '../services/api-helper'
 import Messages from './Messages'
 import CreateMessage from './CreateMessage'
-import { getAllUsers } from '../services/api-helper'
+import { getAllUsers, currentUser } from '../services/api-helper'
 import '../css/Topicthread.css'
 
 
 class TopicThread extends Component {
   state = {
     messages: [],
-    users: []
+    users: [],
+    currentUser: []
    
   }
 
   componentDidMount() {
-  //   this.fetchTopic();
-  // this.changeTopic();
-  // this.addMessage();
     this.fetchUsers();
+    this.getCurrentUser();
+  }
+  getCurrentUser = async () => {
+    let user = await currentUser()
+    this.setState({
+      currentUser: user
+    })
   }
 
-
-
-
-  // handleChange = (e) => {
-  //   const { name, value } = e.target
-  //   this.setState(prevState => ({
-  //     message: {
-  //       ...prevState.message,
-  //       [name]: value
-  //     }
-  //   }))
-  // }
-  // addMessage = async (e) => {
-  //   // e.preventDefault()
-  //   const message = await addMessage(this.props.id, this.state.message)
-  //   this.setState({ message })
-  // }
-
-  // componentDidMount() {
-  //   this.fetchMessages();
-  // }
-
-  // fetchMessages = async () => {
-  //   // const id = this.props.match.params.id
-  //   let id = this.props.match.params.id
-  //   console.log(id)
-  //   const messages = await getAllMessages(parseInt(id))
-  //   this.setState({ messages })
-  //   console.log(this.state.messages)
-  // }
+  
 
   handleMessageCreate = async (message) => {
     
@@ -73,31 +49,41 @@ class TopicThread extends Component {
     let topic = this.props.topics.find(topic => {
       return topic.id === parseInt(id)
     })
-    console.log(topic)
+
+    
+    
+
+
     
     return (
       <>
         <div className='thread-container'>
         {topic &&
-          <div>
+          
           <h1>{topic.name}</h1>
-          </div>}
+          }
         <div className='messages'>
         {topic && 
               topic.messages.map(message => {
                 let person = this.state.users.find(user => message.user_id == user.id)
+                let currentUser = this.state.currentUser
+                console.log(currentUser)
                 console.log(person)
                 return (
                   <>
-                  <div className='message-container'>
-              <p key={message.id}>{message.content}</p>
-                      {person && <img className='user-image' src={person.img} />}
-                    </div>
-                      {person && <p>-{person.username}</p>}
+                    <div className='message-body'>
+                    {currentUser && <div className='message-container'
+                      style={currentUser.id == message.user_id ? { backgroundColor: '#B7F3E8' } : { backgroundColor: 'white'}}>  
+                    <p key={message.id}>{message.content}</p>
+                    {person && <img className='user-image' src={person.img} />}
+                  </div>
+                  }
                     <div className='button-container'>
+                    {person && <p>-{person.username}</p>}
                       <p onClick={() => this.props.handleMessageDelete(message)} className='delete'>delete</p>
                       <p className='delete'>edit</p>
-                    </div>
+                      </div>
+                      </div>
                   </>
                 )
               })
