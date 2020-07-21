@@ -5,6 +5,7 @@ import { addMessage } from '../services/api-helper'
 import CreateMessage from './CreateMessage'
 import { getAllUsers, currentUser } from '../services/api-helper'
 import '../css/Topicthread.css'
+import { animateScroll as scroll } from "react-scroll";
 
 
 class TopicThread extends Component {
@@ -62,8 +63,12 @@ class TopicThread extends Component {
       editContent: ''
     })
   }
-    
 
+  scrollToBottom = () => {
+    scroll.scrollToBottom();
+  }
+
+ 
   render() {
     
     const { id } = this.props.match.params
@@ -118,7 +123,7 @@ class TopicThread extends Component {
           
           </div>
           <div>
-            <CreateMessage handleMessageCreate={this.handleMessageCreate}/>
+          <CreateMessage handleMessageCreate={this.handleMessageCreate} scrollToBottom={this.scrollToBottom} />
           </div>
       </>
     )

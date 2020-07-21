@@ -19,6 +19,7 @@ export default class CreateMessage extends Component {
       <form onSubmit={(e) => {
         e.preventDefault();
         handleMessageCreate(this.state);
+        this.props.scrollToBottom();
         this.setState({
           content: ''
         })
