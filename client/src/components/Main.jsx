@@ -8,7 +8,8 @@ import { getAllTopics, addTopic, addMessage, deleteMessage, messageUpdate } from
 import Search from './Search'
 import TopicThread from './TopicThread'
 import CreateTopic from './CreateTopic'
-import UpdateMessage from './UpdateMessage'
+import Welcome from './Welcome'
+
 
 
 
@@ -18,7 +19,8 @@ class Main extends Component {
     topics: [],
     messages: [],
     message: '',
-    currentTopics: false
+    currentTopics: false,
+    greeting: true
    
   }
 
@@ -43,6 +45,12 @@ class Main extends Component {
     this.setState(prevState=>({
       currentTopics: !prevState.currentTopics
     }))
+  }
+
+  hideGreeting = () => {
+    this.setState({
+      greeting: false
+    })
   }
 
   addNewMessage = (newMessage) => {
@@ -105,7 +113,7 @@ class Main extends Component {
         {this.state.currentTopics ?  this.state.topics.map(topic => (
           <>
             <React.Fragment key={topic.id}>
-              <Link to={`/topics/${topic.id}`}><p>{topic.name}</p></Link>
+              <Link to={`/topics/${topic.id}`}><p onClick={this.hideGreeting}>{topic.name}</p></Link>
             </React.Fragment>
           </>
         )) : ''} 
@@ -113,7 +121,8 @@ class Main extends Component {
         </div>
         
         {<div className='middle-container'>
-        <Route path='/topics/:id' render={(props) => (
+          
+         {this.state.greeting ? <Welcome /> : <Route path='/topics/:id' render={(props) => (
           <TopicThread
             {...props}
               topics={this.state.topics}
@@ -122,7 +131,7 @@ class Main extends Component {
               handleMessageUpdate={this.handleMessageUpdate}
           />
           )}
-          />
+          />}
           </div>}
 
         
