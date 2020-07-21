@@ -71,11 +71,6 @@ class TopicThread extends Component {
       return topic.id === parseInt(id)
     })
 
-    
-    
-
-
-    
     return (
       <>
         <div className='thread-container'>
@@ -85,16 +80,24 @@ class TopicThread extends Component {
           }
         <div className='messages'>
         {topic && 
-              topic.messages.map(message => {
+              topic.messages.map((message) => {
                 let person = this.state.users.find(user => message.user_id == user.id)
                 let currentUser = this.state.currentUser
+                let latestMessageIndex = topic.messages.length - 1
+                // console.log(message[2])
                 return (
                   <>
-                    <div className='message-body'>
+                    <div className='message-body' style={topic.messages.indexOf(message) == latestMessageIndex ? { marginBottom: '50px' } : { marginBottom: '0px' }}>
                     {currentUser && <div className='message-container'
-                      style={currentUser.id == message.user_id ? { backgroundColor: '#B7F3E8' } : { backgroundColor: 'white'}}>  
+                      style={currentUser.id == message.user_id ? { backgroundColor: '#B7F3E8' } : { backgroundColor: 'white'} }>  
                         {this.state.edit == message.id ?
-                          <><input value={this.state.editContent} name='editContent' onChange={this.handleEditChange} /><button onClick={this.handleEditSubmit}>submit</button></> :
+                          <>
+                            <input
+                            value={this.state.editContent}
+                            name='editContent'
+                            onChange={this.handleEditChange} />
+                            <button onClick={this.handleEditSubmit}>submit</button>
+                          </> :
                           <p key={message.id}>{message.content}</p>}
                     {person && <img className='user-image' src={person.img} alt='img' />}
                   </div>

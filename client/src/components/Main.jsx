@@ -165,7 +165,7 @@ class Main extends Component {
          />
         )}
         />
-        <Link to='/register'><button className='sign-up'>Sign Up</button></Link>
+        <Link to='/register'><button className='sign-up'>sign up</button></Link>
         
 
      
