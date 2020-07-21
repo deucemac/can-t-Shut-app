@@ -87,7 +87,7 @@ class TopicThread extends Component {
                 // console.log(message[2])
                 return (
                   <>
-                    <div className='message-body' style={topic.messages.indexOf(message) == latestMessageIndex ? { marginBottom: '50px' } : { marginBottom: '0px' }}>
+                    <div className='message-body' style={topic.messages.indexOf(message) == latestMessageIndex ? { marginBottom: '50px' } : { marginBottom: '0px' } }>
                     {currentUser && <div className='message-container'
                       style={currentUser.id == message.user_id ? { backgroundColor: '#B7F3E8' } : { backgroundColor: 'white'} }>  
                         {this.state.edit == message.id ?

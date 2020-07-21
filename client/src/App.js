@@ -69,11 +69,6 @@ class App extends Component {
     this.props.history.push('/')
   }
 
-  // handleRegister = async (userData) => {
-  //   const currentUser = await registerUser(userData);
-  //   this.setState({ currentUser })
-  // }
-
   handleLogOut = () => {
     
     this.setState({
@@ -107,11 +102,6 @@ class App extends Component {
     
     return (
       <div>
-        {/* <h1>Welcome</h1> */}
-
-        
-        
-          {/* <Search onChange={this.searchChange} onSubmit={this.searchSubmit} value={this.state.filterValue} /> */}
         
         
           <Main
@@ -129,14 +119,7 @@ class App extends Component {
         />
         
         
-        {/* {this.state.currentUser ? <ShowTopics topics={this.state.topics}/> : null } */}
-        {/* {topics.map(topic => (
-          <>
-            <React.Fragment key={topic.id}>
-      <Link to={`/topics/${topic.id}`}><p>{topic.name}</p></Link>
-    </React.Fragment>
-          </>
-        ))} */}
+        
         
         
         
@@ -145,7 +128,7 @@ class App extends Component {
          
 
 
-        {/* <Link to='/register'><p>Sign Up</p></Link> */}
+        
       </div>
     )
   }

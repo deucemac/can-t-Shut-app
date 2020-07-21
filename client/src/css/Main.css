@@ -5,8 +5,12 @@
 main {
   display: flex;
   flex-direction: wrap;
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-weight: 100; */
 
+}
+.user-greeting {
+  font-weight: 100;
 }
 
 .side-bar {
@@ -32,10 +36,11 @@ main {
 
 .middle-container {
   margin-left: 100px;
-  border-right: 2px solid grey;
-  border-left: 2px solid grey;
+  /* border-right: 2px solid grey;
+  border-left: 2px solid grey; */
   width: 550px;
-  height: 100vh;
+  /* height: 100vh; */
+  height: auto;
 }
 
 

@@ -99,7 +99,7 @@ class Main extends Component {
       <main>
         <div className='side-bar'>
         <div className='welcome'>
-        {<h1>Welcome {this.props.currentUser.username}!</h1>}
+        {<h1 className='user-greeting'>Welcome {this.props.currentUser.username}!</h1>}
         </div>
         <div className='img-container'>
             <img className='toggle-topics' src='https://images.unsplash.com/photo-1594846198287-f7aefab844de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80' onClick={this.showTopics} />
