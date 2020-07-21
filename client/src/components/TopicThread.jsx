@@ -76,7 +76,7 @@ class TopicThread extends Component {
         <div className='thread-container'>
         {topic &&
           
-          <h1>{topic.name}</h1>
+          <h1 className='topic-name'>{topic.name}</h1>
           }
         <div className='messages'>
         {topic && 
