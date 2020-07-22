@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../css/Register.css'
 
 export default class Register extends Component {
   state = {
@@ -17,6 +18,7 @@ export default class Register extends Component {
   render() {
     const { username, password, img } = this.state;
     const { handleRegister, history } = this.props;
+    console.log('hello')
 
     return (
       <form onSubmit={(e) => {
@@ -28,6 +30,7 @@ export default class Register extends Component {
         <label>
           Username:
           <input
+            className='register2'
             type="text"
             name="username"
             value={username}
@@ -38,6 +41,7 @@ export default class Register extends Component {
         <label>
           Password:
           <input
+            className='register3'
             type="password"
             name="password"
             value={password}
@@ -48,6 +52,7 @@ export default class Register extends Component {
         <label>
           img:
           <input
+            className='register4'
             type="text"
             name="img"
             value={img}
@@ -55,7 +60,7 @@ export default class Register extends Component {
           />
         </label>
         <br />
-        <button>Submit</button>
+        <button className='submit-user'>Submit</button>
       </form>
     )
   }

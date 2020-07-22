@@ -16,10 +16,23 @@
   position: fixed;
   bottom: 0;
   right: 658px;
-  width: 90px;
+  width: 93px;
   font-size: 18px;
   letter-spacing: .1px;
   padding: 12px 20px 12px 20px;
   border: 1px solid #ddd;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 1500px) {
+ 
+  .submit {
+    right: 492px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .submit {
+    right: 850px;
+  }
 }

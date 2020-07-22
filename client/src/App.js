@@ -1,5 +1,5 @@
 import { loginUser, verifyUser, registerUser, removeToken } from './services/auth'
-// import Login from './components/Login'
+
 import './App.css';
 import { Link, withRouter } from 'react-router-dom'
 import Main from './components/Main'
@@ -28,6 +28,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
+  
     const currentUser = await verifyUser()
     this.setState({
       currentUser
@@ -37,7 +38,7 @@ class App extends Component {
     this.setState({
       topics
     })
-    console.log(this.state.topics)
+   
   }
 
   handleChange = (e) => {
@@ -48,7 +49,7 @@ class App extends Component {
         [name]: value
       }
     }))
-    console.log(this.state.userData)
+    
   }
 
   loginSubmit = async (e) => {
@@ -75,7 +76,7 @@ class App extends Component {
       currentUser: null
     })
     localStorage.removeItem('authToken');
-    console.log(localStorage.getItem('authToken'))
+    
     removeToken();
     this.props.history.push('/login')
   }
@@ -111,7 +112,7 @@ class App extends Component {
           handleRegister={this.handleRegister}
           userData={this.state.userData}
           handleChange={this.handleChange}
-          // topics={this.state.topics}
+          
           onChange={this.searchChange}
           onSubmit={this.searchSubmit}
           value={this.state.filterValue}
@@ -119,15 +120,7 @@ class App extends Component {
         />
         
         
-        
-        
-        
-        
-
-        
-         
-
-
+      
         
       </div>
     )

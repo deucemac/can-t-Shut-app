@@ -10,7 +10,7 @@ Topic.destroy_all
 Message.destroy_all
 
 @gerand=User.create!(username:'gmac', password:'pw123456', img:'https://i.imgur.com/jKlqby6.png')
-@mike=User.create!(username:'mike1', password:'mike123', img:'https://images.unsplash.com/photo-1594533136556-5e46506f63cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1301&q=80')
+@mike=User.create!(username:'mike1', password:'mike123', img:'https://images.unsplash.com/photo-1594533136556-5e46506f63cf')
 
 @baseball=Topic.create!(name:'Baseball')
 @anime=Topic.create!(name:'hunterXhunter')

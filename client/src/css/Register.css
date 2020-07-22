@@ -1,0 +1,44 @@
+.submit-user {
+  
+  width: 150px;
+  font-size: 18px;
+  letter-spacing: .1px;
+  padding: 12px 20px 12px 20px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 89px;
+}
+
+.register2 {
+  
+  width: 300px;
+  font-size: 18px;
+  letter-spacing: .1px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-left: 15px;
+ 
+}
+
+.register3 {
+  
+  width: 300px;
+  font-size: 18px;
+  letter-spacing: .1px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-left: 20px;
+ 
+}
+
+.register4 {
+  
+  width: 300px;
+  font-size: 18px;
+  letter-spacing: .1px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-left: 60px;
+ 
+}

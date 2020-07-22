@@ -58,6 +58,10 @@ main {
   margin-top: 10em;
 }
 
+.sign-buttons {
+  display: flex;
+}
+
 .sign-out {
   font-size: 18px;
   height:46px;
@@ -69,7 +73,26 @@ main {
 .sign-up {
   font-size: 18px;
   height:46px;
+  width: 105px;
   cursor: pointer;
   padding: 12px 20px 12px 20px;
   border: 1px solid #ddd;
 }
+
+
+@media only screen and (max-width: 1500px) {
+  
+  .sign-out {
+    font-size: 14px;
+    width: 105px;
+  }
+  .sign-up {
+    font-size: 14px;
+  }
+
+  .center {
+    right: 33%;
+  }
+
+}
+

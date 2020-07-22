@@ -84,26 +84,20 @@ class Main extends Component {
 
 
   render() {
-
-    if (!this.props.currentUser ) return <div>  <Login
-    handleChange={this.props.handleChange}
-    userData={this.props.userData}
-    handleLogin={this.props.handleLogin}
-    currentUser={this.props.currentUser}
-  // handleLogOut={this.handleLogOut}
-    /></div>
     
 
   
     return (
       <main>
-        <div className='side-bar'>
+        {this.props.currentUser &&  <><div className='side-bar'>
         <div className='welcome'>
         {<h1 className='user-greeting'>Welcome {this.props.currentUser.username}!</h1>}
         </div>
         <div className='img-container'>
             <img className='toggle-topics' src='https://images.unsplash.com/photo-1594846198287-f7aefab844de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80' onClick={this.showTopics} />
-            <div className='center'>Current Topics</div>
+            <div className='center'>
+              <p className='find-topics'>Find Current Topics</p>
+            </div>
         </div>
         <div>
         <Search onChange={this.props.onChange} onSubmit={this.props.onSubmit} value={this.props.value}/>
@@ -120,7 +114,7 @@ class Main extends Component {
           </div>
         </div>
         
-        {<div className='middle-container'>
+        <div className='middle-container'>
           
          {this.state.greeting ? <Welcome /> : <Route path='/topics/:id' render={(props) => (
           <TopicThread
@@ -132,7 +126,7 @@ class Main extends Component {
           />
           )}
           />}
-          </div>}
+          </div>
 
         
 
@@ -141,14 +135,15 @@ class Main extends Component {
        
         
         <div className='right-container'>
-          <div>
-          <button className='sign-out' onClick={this.props.handleLogOut}>sign out</button>
+          <div className='sign-buttons'>
+            <button className='sign-out' onClick={this.props.handleLogOut}>sign out</button>
+            <Link to='/register'><button className='sign-up'>sign up</button></Link>
         </div>
          <div className='img-container-two'>
           <img className='img-profile' src={this.props.currentUser.img} alt='profile'/>
           </div>
           <img src='https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80' />
-          </div>
+          </div></>}
         
         
         
@@ -158,7 +153,7 @@ class Main extends Component {
           
         
       
-        <Route path='/login'>
+        <Route exact path='/login'>
           <Login
             handleChange={this.props.handleChange}
             userData={this.props.userData}
@@ -167,7 +162,8 @@ class Main extends Component {
           // handleLogOut={this.handleLogOut}
           />
         </Route>
-        <Route path='/register' render={(props) => (
+
+        <Route exact path='/register' render={(props) => (
           <Register
             {...props}
             // handleChange={this.handleChange}
@@ -175,7 +171,7 @@ class Main extends Component {
          />
         )}
         />
-        <Link to='/register'><button className='sign-up'>sign up</button></Link>
+        {/* <Link to='/register'><button className='sign-up'>sign up</button></Link> */}
         
 
      
