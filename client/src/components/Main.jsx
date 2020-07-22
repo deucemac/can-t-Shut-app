@@ -94,7 +94,7 @@ class Main extends Component {
         {<h1 className='user-greeting'>Welcome {this.props.currentUser.username}!</h1>}
         </div>
         <div className='img-container'>
-            <img className='toggle-topics' src='https://images.unsplash.com/photo-1594846198287-f7aefab844de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80' onClick={this.showTopics} />
+            <img className='toggle-topics' src='https://images.unsplash.com/photo-1594846198287-f7aefab844de' onClick={this.showTopics} />
             <div className='center'>
               <p className='find-topics'>Find Current Topics</p>
             </div>
@@ -142,7 +142,7 @@ class Main extends Component {
          <div className='img-container-two'>
           <img className='img-profile' src={this.props.currentUser.img} alt='profile'/>
           </div>
-          <img src='https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80' />
+          <img src='https://images.unsplash.com/photo-1515187029135-18ee286d815b' />
           </div></>}
         
         

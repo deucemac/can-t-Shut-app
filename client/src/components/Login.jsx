@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/Login.css'
-// import Main from './Main'
+
 
 
 export default class Login extends Component {
@@ -31,9 +31,9 @@ export default class Login extends Component {
             </div>
               
           <div className='image-login' >
-            <img className='log-in-image' src='https://images.unsplash.com/photo-1453838956707-38a7aa3cd62d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80' />
-            <img className='log-in-image' src='https://images.unsplash.com/photo-1587751395859-9fa4224678a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80' />
-            <img className='log-in-image' src='https://images.unsplash.com/photo-1556159992-e189f8e50104?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80' />
+            <img className='log-in-image' src='https://images.unsplash.com/photo-1453838956707-38a7aa3cd62d' />
+            <img className='log-in-image' src='https://images.unsplash.com/photo-1587751395859-9fa4224678a1' />
+            <img className='log-in-image' src='https://images.unsplash.com/photo-1556159992-e189f8e50104' />
             </div>
          
         </header>
