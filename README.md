@@ -1,5 +1,5 @@
 # Can't-Shut-app
-Can't-Shut-app is a chat room that allows users to create topics and discuss various subjects. Users can friend request each other and create threads to communicate within the app. Slap provides both one-on-one communication and group chats for a diverse user experience.
+Can't-Shut-app is a chat room that allows users to create topics and discuss various subjects. Users can friend request each other and create threads to communicate within the app. This app provides both one-on-one communication and group chats for a diverse user experience.
 
 
 - [Overview](#overview)
