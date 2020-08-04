@@ -25,7 +25,7 @@ export default class CreateMessage extends Component {
         })
 
       }}>
-        <h3></h3>
+       
         <label>
           <input
             className='send'

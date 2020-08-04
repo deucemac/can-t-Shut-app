@@ -3,8 +3,7 @@ import Login from './Login'
 import Register from './Register'
 import { Link, Route, withRouter} from 'react-router-dom'
 import '../css/Main.css'
-import { getAllTopics, addTopic, addMessage, deleteMessage, messageUpdate } from '../services/api-helper'
-// import ShowTopics from './ShowTopics'
+import { getAllTopics, addTopic, deleteMessage, messageUpdate } from '../services/api-helper'
 import Search from './Search'
 import TopicThread from './TopicThread'
 import CreateTopic from './CreateTopic'
@@ -70,16 +69,16 @@ class Main extends Component {
   }
 
   addNewMessage = (newMessage) => {
-    const topicUpdate = this.state.topics.find(topic => topic.id == newMessage.topic_id)
+    const topicUpdate = this.state.topics.find(topic => topic.id === newMessage.topic_id)
     console.log(topicUpdate)
     topicUpdate.messages.push(newMessage)
     this.setState(prevState => ({
-      topics: prevState.topics.map(topic => topicUpdate.id == topic.id ? topicUpdate : topic)
+      topics: prevState.topics.map(topic => topicUpdate.id === topic.id ? topicUpdate : topic)
     }))
   }
 
   handleMessageDelete = async (message) => {
-    const topicRemove = this.state.topics.find(topic => topic.id == message.topic_id)
+    const topicRemove = this.state.topics.find(topic => topic.id === message.topic_id)
     const index = topicRemove.messages.indexOf(message)
     await deleteMessage(topicRemove.id, message.id)
     topicRemove.messages.splice(index, 1)
@@ -91,10 +90,10 @@ class Main extends Component {
   handleMessageUpdate = async (id, messageToChange) => {
    
     const updatedMessage = await messageUpdate(id, messageToChange)
-    let topicEdit = this.state.topics.find(topic => topic.id == updatedMessage.topic_id)
-    topicEdit.messages = topicEdit.messages.map(message => message.id == updatedMessage.id ? updatedMessage: message )
+    let topicEdit = this.state.topics.find(topic => topic.id === updatedMessage.topic_id)
+    topicEdit.messages = topicEdit.messages.map(message => message.id === updatedMessage.id ? updatedMessage : message )
     this.setState(prevState => ({
-      topics: prevState.topics.map(topic => topic.id == topicEdit.id ? topicEdit : topic)
+      topics: prevState.topics.map(topic => topic.id === topicEdit.id ? topicEdit : topic)
     }))
   }
 
@@ -110,7 +109,7 @@ class Main extends Component {
         {<h1 className='user-greeting'>Welcome {this.props.currentUser.username}!</h1>}
         </div>
         <div className='img-container'>
-            <img className='toggle-topics' src='https://images.unsplash.com/photo-1594846198287-f7aefab844de' onClick={this.showTopics} />
+            <img className='toggle-topics' alt='img' src='https://images.unsplash.com/photo-1594846198287-f7aefab844de' onClick={this.showTopics} />
             <div className='center'>
               <p className='find-topics'>Find Current Topics</p>
             </div>
@@ -158,50 +157,29 @@ class Main extends Component {
          <div className='img-container-two'>
           <img className='img-profile' src={this.props.currentUser.img} alt='profile'/>
           </div>
-          <img src='https://images.unsplash.com/photo-1515187029135-18ee286d815b' />
+          <img src='https://images.unsplash.com/photo-1515187029135-18ee286d815b' alt='img' />
           </div></>}
         
         
-        
-          
-       
-        
-          
-        
-      
         <Route exact path='/login'>
           <Login
             handleChange={this.props.handleChange}
             userData={this.props.userData}
             handleLogin={this.props.handleLogin}
             currentUser={this.props.currentUser}
-          // handleLogOut={this.handleLogOut}
           />
         </Route>
 
         <Route exact path='/register' render={(props) => (
           <Register
             {...props}
-            // handleChange={this.handleChange}
             handleRegister={this.props.handleRegister}
          />
         )}
         />
-        {/* <Link to='/register'><button className='sign-up'>sign up</button></Link> */}
         
-
-     
-        
-          
-
-        
-
-        
-        
-     
-       
      </main>
     )
   }
 }
-export default withRouter(Main)
+export default withRouter(Main)    

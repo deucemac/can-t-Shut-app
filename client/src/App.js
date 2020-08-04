@@ -1,15 +1,9 @@
 import { loginUser, verifyUser, registerUser, removeToken } from './services/auth'
 
 import './App.css';
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import Main from './components/Main'
-// import Register from './components/Register'
-// import ShowTopics from './components/ShowTopics'
-// import Search from './components/Search'
-
-
 import React, { Component } from 'react'
-import { getAllTopics } from './services/api-helper';
 
 class App extends Component {
   constructor(props) {
@@ -20,8 +14,6 @@ class App extends Component {
         username: '',
         password: ''
       },
-      // filterValue: '',
-      // filteredTopics: null,
       currentUser: null
     }
     // this.handleLogOut=this.handleLogOut.bind(this)
@@ -34,10 +26,6 @@ class App extends Component {
       currentUser
     })
     if (!currentUser) this.props.history.push('/login')
-    // const topics = await getAllTopics()
-    // this.setState({
-    //   topics
-    // })
    
   }
 
@@ -81,25 +69,7 @@ class App extends Component {
     this.props.history.push('/login')
   }
 
-  // searchChange = (e) => {
-  //   const filter = () => {
-  //     const filteredTopics = this.state.topics.filter(topic => {
-  //       return topic.name.toLowerCase().includes(this.state.filterValue.toLowerCase())
-  //     })
-  //     this.setState({ filteredTopics })
-  //   }
-  //   this.setState({ filterValue: e.target.value }, filter)
-  // }
-
-  // searchSubmit = (e) => {
-  //   e.preventDefault()
-  // }
-
-
-
-
   render() {
-    const topics = this.state.filteredTopics ? this.state.filteredTopics : this.state.topics
     
     return (
       <div>
@@ -109,18 +79,10 @@ class App extends Component {
             currentUser={this.state.currentUser}
             handleLogin={this.loginSubmit}
             handleLogOut={this.handleLogOut}
-          handleRegister={this.handleRegister}
-          userData={this.state.userData}
-          handleChange={this.handleChange}
-          
-          // onChange={this.searchChange}
-          // onSubmit={this.searchSubmit}
-          // value={this.state.filterValue}
-          // topics={topics}
+            handleRegister={this.handleRegister}
+            userData={this.state.userData}
+            handleChange={this.handleChange}
         />
-        
-        
-      
         
       </div>
     )
@@ -128,3 +90,6 @@ class App extends Component {
 }
 
 export default withRouter(App)
+        
+        
+      
