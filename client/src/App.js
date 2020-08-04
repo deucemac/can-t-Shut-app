@@ -20,8 +20,8 @@ class App extends Component {
         username: '',
         password: ''
       },
-      filterValue: '',
-      filteredTopics: null,
+      // filterValue: '',
+      // filteredTopics: null,
       currentUser: null
     }
     // this.handleLogOut=this.handleLogOut.bind(this)
@@ -34,10 +34,10 @@ class App extends Component {
       currentUser
     })
     if (!currentUser) this.props.history.push('/login')
-    const topics = await getAllTopics()
-    this.setState({
-      topics
-    })
+    // const topics = await getAllTopics()
+    // this.setState({
+    //   topics
+    // })
    
   }
 
@@ -81,19 +81,19 @@ class App extends Component {
     this.props.history.push('/login')
   }
 
-  searchChange = (e) => {
-    const filter = () => {
-      const filteredTopics = this.state.topics.filter(topic => {
-        return topic.name.toLowerCase().includes(this.state.filterValue.toLowerCase())
-      })
-      this.setState({ filteredTopics })
-    }
-    this.setState({ filterValue: e.target.value }, filter)
-  }
+  // searchChange = (e) => {
+  //   const filter = () => {
+  //     const filteredTopics = this.state.topics.filter(topic => {
+  //       return topic.name.toLowerCase().includes(this.state.filterValue.toLowerCase())
+  //     })
+  //     this.setState({ filteredTopics })
+  //   }
+  //   this.setState({ filterValue: e.target.value }, filter)
+  // }
 
-  searchSubmit = (e) => {
-    e.preventDefault()
-  }
+  // searchSubmit = (e) => {
+  //   e.preventDefault()
+  // }
 
 
 
@@ -113,10 +113,10 @@ class App extends Component {
           userData={this.state.userData}
           handleChange={this.handleChange}
           
-          onChange={this.searchChange}
-          onSubmit={this.searchSubmit}
-          value={this.state.filterValue}
-          topics={topics}
+          // onChange={this.searchChange}
+          // onSubmit={this.searchSubmit}
+          // value={this.state.filterValue}
+          // topics={topics}
         />
         
         

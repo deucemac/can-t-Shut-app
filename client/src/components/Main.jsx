@@ -20,7 +20,9 @@ class Main extends Component {
     messages: [],
     message: '',
     currentTopics: false,
-    greeting: true
+    greeting: true,
+    filterValue: '',
+    filteredTopics: null
    
   }
 
@@ -32,6 +34,20 @@ class Main extends Component {
     const topics = await getAllTopics();
     this.setState({ topics });
     console.log(this.state.topics)
+  }
+
+  searchChange = (e) => {
+    const filter = () => {
+      const filteredTopics = this.state.topics.filter(topic => {
+        return topic.name.toLowerCase().includes(this.state.filterValue.toLowerCase())
+      })
+      this.setState({ filteredTopics })
+    }
+    this.setState({ filterValue: e.target.value }, filter)
+  }
+
+  searchSubmit = (e) => {
+    e.preventDefault()
   }
 
   handleTopicCreate = async (topicInfo) => {
@@ -84,7 +100,7 @@ class Main extends Component {
 
 
   render() {
-    
+    const topics = this.state.filteredTopics ? this.state.filteredTopics : this.state.topics
 
   
     return (
@@ -100,11 +116,11 @@ class Main extends Component {
             </div>
         </div>
         <div>
-        <Search onChange={this.props.onChange} onSubmit={this.props.onSubmit} value={this.props.value}/>
+        <Search onChange={this.searchChange} onSubmit={this.searchSubmit} value={this.state.filterValue}/>
           </div>
           <CreateTopic handleTopicCreate={this.handleTopicCreate} />
         <div>
-        {this.state.currentTopics ?  this.state.topics.map(topic => (
+        {this.state.currentTopics ? topics.map(topic => (
           <>
             <React.Fragment key={topic.id}>
               <Link to={`/topics/${topic.id}`}><p onClick={this.hideGreeting}>{topic.name}</p></Link>
